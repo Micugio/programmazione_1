@@ -1,54 +1,51 @@
 # Programmazione 1
 
 ## Compilatore
-g++ <nomefile.cc> -> compila file (comando da eseguire all'interno della cartella del file).
-COMPILAZIONE file MULTIPLI (al file principale do il nome main): g++ <main.cc>
-./a.out -> esegue l'ultimo file compilato.
-ls -> mostra percorsi all'intermo del percorso in cui sono.
-cd <nomepercorso> -> apre il percorso scritto.
-cd /mnt/c/esempiP1 -> va alla cartella esempi Programmazione 1 su Windows 11.
+g++ <nomefile.cc> -> compila file (comando da eseguire all'interno della cartella del file).  
+COMPILAZIONE file MULTIPLI (al file principale do il nome main): g++ <main.cc>  
+./a.out -> esegue l'ultimo file compilato.  
+ls -> mostra percorsi all'intermo del percorso in cui sono.  
+cd <nomepercorso> -> apre il percorso scritto.  
+cd /mnt/c/esempiP1 -> va alla cartella esempi Programmazione 1 su Windows 11.  
 
 ## Git
-git clone <link> -> clona repository sulla macchina locale.
-git add . -> aggiunge tutte le modifiche effettuate nel repository alle modifiche che verrano salvate.
-git commit -m "<messaggio>" -> salva tutte le modifiche sul repository locale.
-git push -> invia le modifiche del repository locale online.
-git pull -> copia le modifica, del repository da github a locale.
+git clone <link> -> clona repository sulla macchina locale.  
+git add . -> aggiunge tutte le modifiche effettuate nel repository alle modifiche che verrano salvate.  
+git commit -m "<messaggio>" -> salva tutte le modifiche sul repository locale.  
+git push -> invia le modifiche del repository locale online.  
+git pull -> copia le modifica, del repository da github a locale.  
 
 ## Valgrid
-INSTALLARE:
-  sudo apt update
-  sudo apt upgrade
-  sudo apt install valgrind
-  valgrind --version   //Verifica installazione
-COMPILAZIONE ed ESECUZIONE:
-  g++ -g nomefile.cc
-  valgrind ./a.out
+INSTALLARE:  
+  sudo apt update  
+  sudo apt upgrade  
+  sudo apt install valgrind  
+  valgrind --version (NOTA: verifica installazione)  
+COMPILAZIONE ed ESECUZIONE:  
+  g++ -g nomefile.cc  
+  valgrind ./a.out  
 
-## SEQUENZE DI ESCAPE COMUNI:
-Escape    Character represented
-  \b        Backspace (cancella un carattere a sinistra)
-  \n        Newline (va a capo)
-  \t		    Tab
-  \\		    Backslash (\)
-  \'		    Apostrofo
-  \"		    Virgolette
+## SEQUENZE DI ESCAPE
+- \b   ->   Backspace (cancella un carattere a sinistra)  
+- \n   ->   Newline (va a capo)  
+- \t   ->   Tab  
+- \\   ->   Backslash (\)  
+- (\')   ->   Apostrofo  
+- (\")   ->   Virgolette  
 
 ## Valori Buleani
-NOT (!) = valore opposto di quel valore (si usa una una sola variabile)
-AND (&&) = stesso valore restituisce quel valore 
-OR (||) = true se un valore è true
-XOR = true se sono valori diversi (true o false)
-  valore booleano:    true = 1     false = 0
-  valore booleano: true=1 false=0
+NOT (!) = valore opposto di quel valore (si usa una una sola variabile)  
+AND (&&) = stesso valore restituisce quel valore  
+OR (||) = true se un valore è true  
+XOR = true se sono valori diversi (true o false)  
+  valore booleano:    true = 1     false = 0  
+  valore booleano: true=1 false=0  
 
 ## Maiuscole e minuscole
-(a sempre minore b, A sempre minore a)
-Assumo che il valore delle Maiuscole precede le minuscole
-E carattere in input è una lettera
-Maiuscole = minore di 91
-minuscole = maggiore di 91
-Assumo che il valore delle minuscole precede le Maiuscole
+Assumo che il valore delle Maiuscole precede le minuscole.  
+E carattere in input è una lettera.  
+- Maiuscole = minore di 91
+- minuscole = maggiore di 91
 
 ## Variabili
 Se inizializzo variabile senza assegnarli valore fuori main è una variabile globale con valore = 0.
@@ -57,7 +54,7 @@ QUINDI assegna sempre valore a variabile inizializzata.
 IN GENERALE: cercare di NON usare variabili globali, in caso devono essere costanti e con nomi maiuscoli (es: const int Y;).
 
 ## Espressione condizionale ( condizione ? valore_se_vero : valore_se_falso )
-ESEMPIO SEMPLICE ( i==5 ? n=1  : n=0 ):
+ESEMPIO SEMPLICE (i==5 ? n=1  : n=0):  
 if (i==5) {
   n=1;
 } else {

@@ -6,8 +6,9 @@ int main ()
   int i=10;
 
   while (i>0) {
-    cout << "ciao" << endl;
+    cout << "ciao  " << i << endl;
     i--;
   }
+  
   return 0;
 }

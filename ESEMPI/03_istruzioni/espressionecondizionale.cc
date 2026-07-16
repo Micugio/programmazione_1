@@ -3,15 +3,14 @@ using namespace std;
 
 int main ()        
 {
-
   float peso,valore,prezzo;
   
   cout << "Dammi il tuo peso in kg: ";
   cin >> peso;
   cout << "dammi il valore in euro: ";
   cin >> valore;
-  prezzo = valore * peso * ((peso > 10) ? 0.9 : 1.0);
-  cout << "Il prezzo e' " << prezzo << endl;
+  prezzo = valore * peso * ((peso > 10) ? 0.9 : 1.0);  // Quello tra parantesi è un if
+  cout << "Il prezzo è " << prezzo << endl;
 
-return 0;
+  return 0;
 }

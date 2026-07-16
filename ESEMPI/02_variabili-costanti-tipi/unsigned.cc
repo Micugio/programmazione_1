@@ -7,7 +7,9 @@ int main ()
   unsigned short int y=567;
   unsigned long int z=878678687;
 
-  unsigned int w=4294967295+2; // [0,4294967295]
+  //unsigned int w=4294967295+2;  // ERRORE, stack overflow
+  unsigned int w=0.4294967+2;
+  unsigned int w=4294967+2;
   unsigned int v=4294967295;
   unsigned int u=-1;
 
@@ -17,5 +19,6 @@ int main ()
   cout << "w = " << w << endl;
   cout << "v = " << v << endl;
   cout << "u = " << u << endl;
+  
   return 0;
 }

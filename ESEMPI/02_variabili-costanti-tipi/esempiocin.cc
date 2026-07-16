@@ -5,9 +5,10 @@ int main ()
 {
   char x;
   float y;
+  //double h;
   int z;
 
-  cout << "dammi in sequenza un carattere, un reale ed un intero" << endl;
+  cout << "dammi in sequenza: un carattere, un reale e un intero" << endl;
   cin >> x;
   cin >> y;
   cin >> z;
@@ -15,5 +16,6 @@ int main ()
   return 0;
 }
 
-//NB: cosa succede se digito "prompt> A3.5 3" ?
-// e con "prompt> 3.5 4 3" ?
+//NB: cosa succede se digito "input> A3.5 3" ?
+//    e con "input> Ab3.5 3" ?
+//    e con "input> 3.5 4 3" ?

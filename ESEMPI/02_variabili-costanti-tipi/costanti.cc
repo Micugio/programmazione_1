@@ -14,7 +14,7 @@ int main ()
   cout << "mille = " << mille << endl;
   cout << "c = " << c << endl;
 
-  kilo = 100; //==> ERRORE
+  kilo = 100; //==> ERRORE (non posso cambiare valore di una costante)
 
   // MOLTO PERICOLOSO (EVITARE!!):
   // SU ALCUNE MACCHINE a e duea potrebbero essere inizializzate a 0

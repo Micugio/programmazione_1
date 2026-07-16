@@ -3,7 +3,6 @@ using namespace std;
 
 int main ()
 {
-
   int n = 32768;           // 2^15
   short int m = 32768;
   int k = 2147483648;      // 2^31

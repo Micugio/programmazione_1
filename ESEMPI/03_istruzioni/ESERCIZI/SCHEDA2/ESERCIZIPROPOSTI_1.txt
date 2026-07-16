@@ -1,5 +1,5 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% ESERCIZI PROPOSTI
+%%% ESERCIZI PROPOSTI_1
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 1) Scrivere un programma che calcoli i primi 20 numeri della
@@ -15,6 +15,6 @@
    Somma_i (-1)^i 1/(x^i)
 
 3) Scrivere un programma che prenda in ingresso un valore reale x e un
-   intero N e calcoli x^N come prodotto di N volte X.
+   intero N e calcoli x^N come prodotto di N volte X.  (FATTO)
 
 4) Cercare invarianti di ciclo degli esempi proposti

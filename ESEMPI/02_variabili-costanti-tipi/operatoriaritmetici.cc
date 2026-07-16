@@ -3,7 +3,6 @@ using namespace std;
 
 int main ()
 {
-
   int n = 7;
   int m = 3;
 

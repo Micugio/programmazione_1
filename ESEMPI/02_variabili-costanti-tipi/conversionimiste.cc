@@ -11,12 +11,15 @@ int main ()
   x = 3;
   cout << "x = " << x << endl;
 
-  b = 2*3.6;
-  cout << "b = " << b << endl;
-  b = -2*3.9;
-  cout << "b = " << b << endl;
-  b = 2*int(3.9);
-  cout << "b = " << b << endl;
+  b = 2*3.6;  // = 7.2
+  cout << "b = " << b << endl;  // STAMPA 7
+
+  b = -2*3.9;  // = -7.8
+  cout << "b = " << b << endl;  // STAMPA -7
+
+  b = 2*int(3.9); // = 2*3 = 6
+  cout << "b = " << b << endl;  // STAMPA 6
+
 
   a = 2147483600; // 2^31-48
   cout << "a = " << setw(12) << a << endl;

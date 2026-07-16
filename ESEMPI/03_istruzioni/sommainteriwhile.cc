@@ -11,9 +11,17 @@ int main ()
   somma = 0;
 
   while (i<=n) {
+    cout << "i = "  << i << endl;
+
     somma += i;
+    cout << "Somma = "  << somma << endl;
     i++;
+
+    cout << "i = "  << i << endl;
+    cout << endl;
   }
-  cout  << "Somma = "  << somma   << endl;
+
+  cout << "Somma = "  << somma << "   i = "  << i << endl;
+
   return 0;
 }

@@ -4,9 +4,10 @@ using namespace std;
 int main ()
 {
   char l = 'a';
+  //char l = a;  // ERRORE: devo usare i singoli apostrofi per assegnare un valore char.
+
   l += 3; // l diventa 'd'
   cout << "l = " << l << endl;
-
   l--;    // l diventa 'c'
   cout << "l = " << l << endl;
   l-='a'-'A'; // l diventa 'C'

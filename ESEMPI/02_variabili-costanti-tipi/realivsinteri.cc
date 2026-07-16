@@ -13,7 +13,7 @@ int main ()
   cout << "a/b=" << a/b << endl;
   cout << "x/y=" << x/y << endl;
 
-  a = 1232452343451244;
+  //a = 1232452343451244;  // ERRORE: va in overflow
   x = 1232452343451244;
 
   cout << "a=" << a << endl;

@@ -1,169 +1,310 @@
 # Programmazione 1
 
-## Compilatore
-g++ <nomefile.cc> -> compila file (comando da eseguire all'interno della cartella del file).  
-COMPILAZIONE file MULTIPLI (al file principale do il nome main): g++ <main.cc>  
-./a.out -> esegue l'ultimo file compilato.  
-ls -> mostra percorsi all'intermo del percorso in cui sono.  
-cd <nomepercorso> -> apre il percorso scritto.  
-cd /mnt/c/esempiP1 -> va alla cartella esempi Programmazione 1 su Windows 11.  
+## 💻 Compilatore & Terminale
 
-## Git
-git clone <link> -> clona repository sulla macchina locale.  
-git add . -> aggiunge tutte le modifiche effettuate nel repository alle modifiche che verrano salvate.  
-git commit -m "<messaggio>" -> salva tutte le modifiche sul repository locale.  
-git push -> invia le modifiche del repository locale online.  
-git pull -> copia le modifica, del repository da github a locale.  
+I comandi seguenti vanno eseguiti all'interno della cartella in cui si trova il file.
 
-## Valgrid
-INSTALLARE:  
-  sudo apt update  
-  sudo apt upgrade  
-  sudo apt install valgrind  
-  valgrind --version (NOTA: verifica installazione)  
-COMPILAZIONE ed ESECUZIONE:  
-  g++ -g nomefile.cc  
-  valgrind ./a.out  
+```bash
+# Compilazione di un singolo file
+g++ <nomefile.cc>
 
-## SEQUENZE DI ESCAPE
-- \b   ->   Backspace (cancella un carattere a sinistra)  
-- \n   ->   Newline (va a capo)  
-- \t   ->   Tab  
-- \\   ->   Backslash (\)  
-- (\')   ->   Apostrofo  
-- (\")   ->   Virgolette  
+# Compilazione di file multipli (assegnando il nome 'main' al file principale)
+g++ <main.cc>
 
-## Valori Buleani
-NOT (!) = valore opposto di quel valore (si usa una una sola variabile)  
-AND (&&) = stesso valore restituisce quel valore  
-OR (||) = true se un valore è true  
-XOR = true se sono valori diversi (true o false)  
-  valore booleano:    true = 1     false = 0  
-  valore booleano: true=1 false=0  
+# Esecuzione dell'ultimo file compilato
+./a.out
 
-## Maiuscole e minuscole
-Assumo che il valore delle Maiuscole precede le minuscole.  
-E carattere in input è una lettera.  
-- Maiuscole = minore di 91
-- minuscole = maggiore di 91
+# Mostra i file e le cartelle nel percorso corrente
+ls
 
-## Variabili
-Se inizializzo variabile senza assegnarli valore fuori main è una variabile globale con valore = 0.
-Se inizializzo variabile dentro main senza assegnarli valore non so quale valore assume.
-QUINDI assegna sempre valore a variabile inizializzata.
-IN GENERALE: cercare di NON usare variabili globali, in caso devono essere costanti e con nomi maiuscoli (es: const int Y;).
+# Entra nella cartella specificata
+cd <nomepercorso>
 
-## Espressione condizionale ( condizione ? valore_se_vero : valore_se_falso )
-ESEMPIO SEMPLICE (i==5 ? n=1  : n=0):  
-if (i==5) {
-  n=1;
+# Naviga direttamente alla cartella degli esempi di Programmazione 1 su WSL (Windows 11)
+cd /mnt/c/esempiP1
+```
+
+---
+
+## 🐙 Git
+
+```bash
+# Clona una repository remota sulla macchina locale
+git clone <link>
+
+# Aggiunge tutte le modifiche effettuate nell'area di staging
+git add .
+
+# Salva le modifiche nel database del repository locale
+git commit -m "<messaggio>"
+
+# Invia i commit del repository locale al server remoto (GitHub)
+git push
+
+# Scarica e unisce le modifiche da GitHub al repository locale
+git pull
+```
+
+---
+
+## 🛠️ Valgrind
+
+### Installazione
+```bash
+sudo apt update
+sudo apt upgrade
+sudo apt install valgrind
+
+# Verifica l'avvenuta installazione
+valgrind --version
+```
+
+### Compilazione ed Esecuzione
+```bash
+# Compila abilitando i simboli di debug (-g)
+g++ -g nomefile.cc
+
+# Esegue il programma sotto il controllo di Valgrind per scovare memory leak
+valgrind ./a.out
+```
+
+---
+
+## 🔤 Sequenze di Escape
+
+| Sequenza | Significato | Effetto |
+| :---: | :--- | :--- |
+| `\b` | Backspace | Cancella un carattere a sinistra |
+| `\n` | Newline | Va a capo |
+| `\t` | Tab | Inserisce una tabulazione (spazio grande) |
+| `\\` | Backslash | Stampa il carattere `\` |
+| `\'` | Apostrofo | Stampa il carattere `'` |
+| `\"` | Virgolette | Stampa il carattere `"` |
+
+---
+
+## 🔄 Valori Booleani
+
+*   **NOT (`!`)**: Restituisce il valore opposto (si usa con una sola variabile).
+*   **AND (`&&`)**: Restituisce `true` solo se entrambi i valori sono `true`.
+*   **OR (`||`)**: Restituisce `true` se almeno uno dei valori è `true`.
+*   **XOR**: Restituisce `true` solo se i valori sono diversi tra loro (`true` e `false`).
+
+> **Rappresentazione numerica:**
+> *   `true` = `1`
+> *   `false` = `0`
+
+---
+
+## 🔠 Maiuscole e Minuscole
+
+*Assumendo che il valore delle Maiuscole preceda le minuscole nella tavola ASCII e che il carattere in input sia una lettera:*
+
+*   **Maiuscole**: valore numerico minore di `91` (fino a 'Z')
+*   **Minuscole**: valore numerico maggiore di `91` (da 'a' in poi)
+
+---
+
+## 📦 Variabili
+
+*   Se inizializzi una variabile **fuori dal `main`** (variabile globale) senza assegnarle un valore, assume automaticamente il valore `= 0`.
+*   Se inizializzi una variabile **dentro il `main`** senza assegnarle un valore, assume un valore indeterminato (spazzatura in memoria).
+*   👉 **QUINDI**: Assegna sempre un valore di partenza a ogni variabile quando la inizializzi.
+*   ⚠️ **IN GENERALE**: Cerca di **NON** usare variabili globali. Se proprio necessarie, devono essere costanti e scritte con nomi in MAIUSCOLO (es: `const int Y;`).
+
+---
+
+## 🔀 Espressione Condizionale (Operatore Ternario)
+
+Sintassi: `condizione ? valore_se_vero : valore_se_falso`
+
+### Esempio Semplice
+```cpp
+// Equivalente compatto di un blocco if-else di assegnazione
+i == 5 ? n = 1 : n = 0;
+```
+*Equivale a:*
+```cpp
+if (i == 5) {
+    n = 1;
 } else {
-  n=0;
+    n = 0;
 }
-ESEMPIO COMPLESSO ( found ? location-1 : -1 ):
+```
+
+### Esempio Complesso
+```cpp
+// Utilizzo diretto nel ritorno di una funzione
+return found ? location - 1 : -1;
+```
+*Equivale a:*
+```cpp
 if (found) {
-  return location - 1; // Restituisce questo se 'found' è vero
+    return location - 1; // Restituisce questo se 'found' è vero
 } else {
-  return -1;           // Restituisce questo se 'found' è falso
+    return -1;           // Restituisce questo se 'found' è falso
 }
+```
 
-## Ordine operatori (dal più alto al più basso)
-Operatori unari e di precedenza più alta: ::, (), ++ (prefisso), sizeof, * (indiretto), & (indirizzo), ~, !.
-Moltiplicativi: * (moltiplicazione), / (divisione), % (modulo).
-Additivi: + (addizione), - (sottrazione).
-Shifts bit a bit: <<, >>.
-Relazionali: <, <=, >, >=.
-Di uguaglianza: ==, !=.
-AND bit a bit: &.
-OR bit a bit: ^.
-OR esclusivo bit a bit: |.
-AND logico: &&.
-OR logico: ||.
-Espressione condizionale: ?:.
-Assegnazione: =, +=, -=, *= ecc.
+---
 
-## LIBRERIE UTILI
-#include <iomanip>
-  setw(n) //Stampa n spazi.
-  numero << setprecision(n) //Stampa n cifre del "numero" (senza approssimazione).
-  numuro << fixed << setprecision(n) //Stampa n cifre di "numero" (con approssimazione).
-#include <cctype>
-  isalnum(c) //Carattere "c" è alfanumerico? True=1 False=0.
-  toupper(c) //Converte "c" da minuscola a Maiuscola (NB: SOLO SE "c" è minuscolo NON il contrario o altri casi).
-#include <cstdlib>
-  srand(time(NULL)); //(quando inizializzo)  ->  rand() //(quando la uso).
-  atoi(argv[1]) //Converte una stringa in int.
-  atof(argv[2]) //Converte una stringa in double.
-#include <cstring>
-  strlen(s) //Lunghezza stringa "s" senza terminatore.
-  strcpy(s,t) //Copia (sovrascrivendo) stringa "t" in stringa "s" e restituisce "s".
-  strcat(s,t) //Copia in coda stringa "t" in stringa "s" e restituisce "s".
+## 🔢 Ordine degli Operatori (Precedenza dal più alto al più basso)
 
-## TUTTI I CASI DI UTILIZZO PUNTATORI
-| Cosa voglio fare                   |        Sintassi       | Perché                                            |
-| ---------------------------------- | --------------------- | ------------------------------------------------- |
-| Puntare a una variabile normale    |        *p = &x        | x non è un indirizzo                              |
-| Puntare a un puntatore             |        *p = &p        | serve l’indirizzo del puntatore                   |
-| Copiare un indirizzo già esistente |  (*p = &x) -> *q = p  | p (essendo un puntatore) contiene già l’indirizzo |
-## Quando usare Riferimento o Puntatore
-|   Caso                                      | Usa riferimento | Usa puntatore |
-| ------------------------------------------- | --------------- | ------------- |
-| Modificare una variabile passata a funzione |   ✔️            |   ✔️         |
-| Evitare valori nulli                        |   ✔️            |   ❌         |
-| Devi poter cambiare ciò a cui “punta”       |   ❌            |   ✔️         |
-| Allocazione dinamica                        |   ❌            |   ✔️         |
-| Strutture dati dinamiche (liste, alberi)    |   ❌            |   ✔️         |
-## Puntatori (*pd) RICORDA: puntatore ha come valore l'indirizzo della variabile a cui punta
-1) INZIALIZZAZIONE: int *pd = &x (NOTA: Sempre inizializzare puntatore e dirgli a cosa puntare).
-2) Nuova variabile (con suo spazio in memoria). 
-3) IMPORTANTE: puntatore punta all'indirizzo di un'altra variabile assumendo come valore il suo indirizzo, però se uso *pd ottengo anche valore a cui punta.
-4) L'indirizzo a cui punta il puntatore può essere cambiato
-5) ESEMPIO: *pd = 5 (cambia il valode di pd con 5).
-## Altre tipologie di puntatori
-1) Puntatori a void
-2) Puntatori a costante
-3) Costanti puntatori
-4) Costanti puntatore a costante
-5) Puntatori a puntatori
-## Riferimenti a
-1) INZIALIZZAZIONE: int &y = x
-2) Alias (sinonimo) di una variabile, NON è una copia di quella variabile.
-3) Non ha uno spazio in memoria dedicato.
-4) Dopo esser stato inizializzato e legato PER SEMPRE a quella variabile, non si può "sciogliere" il legame o cambiare variabile.
-## Significato operatori "&" e "*"
-&x -> ottengo indirizzo di x (variabile)
-*pd -> ottengo valore numerico di pd (puntatore) -> INFATTI: Se scrivessi SOLO pd -> otterei indirizzo di pd (puntatore).
+1.  **Operatori unari e di precedenza massima**: `::`, `()`, `++` (prefisso), `sizeof`, `*` (indiretto), `&` (indirizzo), `~`, `!`
+2.  **Moltiplicativi**: `*` (moltiplicazione), `/` (divisione), `%` (modulo)
+3.  **Additivi**: `+` (addizione), `-` (sottrazione)
+4.  **Shifts bit a bit**: `<<`, `>>`
+5.  **Relazionali**: `<`, `<=`, `>`, `>=`
+6.  **Di uguaglianza**: `==`, `!=`
+7.  **AND bit a bit**: `&`
+8.  **OR esclusivo bit a bit (XOR)**: `^`
+9.  **OR bit a bit**: `|`
+10. **AND logico**: `&&`
+11. **OR logico**: `||`
+12. **Espressione condizionale**: `?:`
+13. **Assegnazione**: `=`, `+=`, `-=`, `*=`, ecc.
 
-## Funzioni o Procedure (NOTA: procedura = funzione void)
-1) funzione int, double, ... = FUNZIONE
-2) funzione void = PROCEDURA
-1. parametri formali = parametri della definizione
-2. parametri attuali = parametri della chiamata
+---
 
-## FUNZIONI RICORSIVE
+## 📚 Librerie Utili
+
+### `<iomanip>`
+*   `setw(n)`: Stampa $n$ spazi di formattazione.
+*   `numero << setprecision(n)`: Stampa $n$ cifre significative del numero (senza approssimazione).
+*   `numero << fixed << setprecision(n)`: Stampa esattamente $n$ cifre decimali dopo la virgola (con approssimazione).
+
+### `<cctype>`
+*   `isalnum(c)`: Controlla se il carattere `c` è alfanumerico. Ritorna `1` (True) o `0` (False).
+*   `toupper(c)`: Converte `c` da minuscolo a MAIUSCOLO (*Nota: funziona solo se `c` è minuscolo*).
+
+### `<cstdlib>`
+*   `srand(time(NULL));`: Da inserire all'inizializzazione per generare il seed dei numeri casuali.
+*   `rand()`: Genera un numero casuale.
+*   `atoi(argv[1])`: Converte una stringa (C-string) in un valore di tipo `int`.
+*   `atof(argv[2])`: Converte una stringa (C-string) in un valore di tipo `double`.
+
+### `<cstring>`
+*   `strlen(s)`: Restituisce la lunghezza della stringa `s` (escludendo il carattere terminatore `\0`).
+*   `strcpy(s, t)`: Copia e sovrascrive la stringa `t` dentro la stringa `s`, restituendo `s`.
+*   `strcat(s, t)`: Concatena in coda la stringa `t` alla stringa `s`, restituendo `s`.
+
+---
+
+## 📍 Tutti i Casi di Utilizzo dei Puntatori
+
+| Cosa voglio fare | Sintassi | Perché |
+| :--- | :---: | :--- |
+| **Puntare a una variabile normale** | `*p = &x` | `x` non è un indirizzo, serve l'operatore di indirizzo `&` |
+| **Puntare a un puntatore** | `*p = &p` | Serve l'indirizzo di memoria del puntatore stesso |
+| **Copiare un indirizzo già esistente** | `(*p = &x) -> *q = p` | `p` contiene già un indirizzo al suo interno, non serve `&` |
+
+---
+
+## ⚖️ Quando Usare un Riferimento o un Puntatore
+
+| Caso d'uso | Usa riferimento | Usa puntatore |
+| :--- | :---: | :---: |
+| Modificare una variabile passata a una funzione | ✔️ | ✔️ |
+| Evitare la gestione di valori nulli | ✔️ | ❌ |
+| Dover poter cambiare dinamicamente ciò a cui "punta" | ❌ | ✔️ |
+| Allocazione dinamica della memoria | ❌ | ✔️ |
+| Strutture dati dinamiche (es. liste concatenate, alberi) | ❌ | ✔️ |
+
+---
+
+## 🔍 Focus: Puntatori (`*pd`)
+> **RICORDA**: Un puntatore memorizza come valore l'**indirizzo di memoria** della variabile a cui punta.
+
+1.  **Inizializzazione**: `int *pd = &x` *(Nota: Inizializza sempre un puntatore dicendogli subito a cosa puntare).*
+2.  Si tratta di una nuova variabile con un proprio spazio fisico in memoria.
+3.  **Puntatore all'indirizzo**: Assume come valore l'indirizzo di un'altra variabile. Usando l'operatore di dereferenziazione `*pd` si ottiene direttamente il valore contenuto in quell'indirizzo.
+4.  L'indirizzo contenuto nel puntatore può essere modificato nel corso del programma per puntare a variabili diverse.
+5.  **Esempio**: `*pd = 5` modifica il valore della variabile puntata da `pd` impostandolo a `5`.
+
+### Altre tipologie di puntatori:
+1.  Puntatori a `void` (generici)
+2.  Puntatori a costante
+3.  Costanti puntatori
+4.  Costanti puntatore a costante
+5.  Puntatori a puntatori (doppio puntatore)
+
+---
+
+## 🔗 Focus: Riferimenti (`&`)
+
+1.  **Inizializzazione**: `int &y = x`
+2.  Funziona come un **Alias (sinonimo)** della variabile originale, **NON** è una copia.
+3.  Non possiede uno spazio di memoria dedicato autonomo.
+4.  Una volta inizializzato ed associato a una variabile, il legame dura per **tutta la vita del riferimento** e non può essere modificato per riferirsi a un'altra variabile.
+
+---
+
+## ❓ Significato degli Operatori `&` e `*`
+
+*   `&x` $\rightarrow$ Ottengo l'**indirizzo** di memoria della variabile `x`.
+*   `*pd` $\rightarrow$ Ottengo il **valore** memorizzato all'indirizzo a cui punta `pd`.
+*   *Se scrivessi solo* `pd` $\rightarrow$ Otterrei l'**indirizzo** contenuto nel puntatore `pd`.
+
+---
+
+## 🛠️ Funzioni o Procedure
+
+*   Funzione che restituisce un tipo (`int`, `double`, etc.) = **FUNZIONE**
+*   Funzione che restituisce `void` = **PROCEDURA**
+
+1.  **Parametri formali**: Le variabili definite nella firma della funzione.
+2.  **Parametri attuali**: I valori o le variabili passate concretamente al momento della chiamata.
+
+---
+
+## 🔄 Funzioni Ricorsive
+
+```text
+Funzioni Ricorsive
 ├── VOID (produce effetti)
-|     |
-|     ├── tail recursive (chiamata ricorsiva = ultima istruzione)
-|     |
-|     └── NON tail recursive (c'è codice dopo la chiamata ricorsiva)
+│     │
+│     ├── Tail recursive (la chiamata ricorsiva è l'ultima istruzione)
+│     │
+│     └── NON tail recursive (c'è altro codice da eseguire dopo la chiamata ricorsiva)
 │
-|
 └── RETURN (produce un valore)
-      |
-      ├── calcolo al RITORNO
-      |                 |
-      │                 └── NON tail recursive (c'è codice dopo la chiamata ricorsiva)
-      |
-      └── calcolo all’ANDATA (con accomulatore)
-                        |
-                        └── tail recursive (chiamata ricorsiva = ultima istruzione)
+      │
+      ├── Calcolo al RITORNO
+      │                 │
+      │                 └── NON tail recursive (c'è altro codice dopo la chiamata ricorsiva)
+      │
+      └── Calcolo all’ANDATA (con accumulatore)
+                        │
+                        └── Tail recursive (la chiamata ricorsiva è l'ultima istruzione)
+```
 
-## Array e Funzioni
-Gli array vengono passati per riferimento alla funzione (cioè sono dei puntatori), allora è meglio mettere davanti "const" a "int myArray [dim]" (dim è un numero costante); int funzione (const int myArray [dim]);
-Quando passi un array a una funzione, diventa un puntatore, la dimensione si perde.
-Negli array 1D il compilatore non ha bisogno della dimensione, semplicemente gli scorre tutti un numero stabilito di volte (dim).
-Negli array 2D invece DEVE sapere la dimensione della riga, serve la seconda dimensione (DIM2) che indica il numero di colonne (cioè gli elementi di ogni riga prima di dover passare alla riga successiva).
+---
 
-## Stringhe
-- cin.getline(s, DIM) -> legge
-...
+## 📊 Array e Funzioni
+
+*   Gli array vengono passati alle funzioni **sempre per riferimento** (sotto forma di puntatore). Per proteggere i dati da modifiche accidentali, si consiglia di usare la keyword `const`:
+    ```cpp
+    int funzione (const int myArray[dim]); // 'dim' deve essere una costante
+    ```
+*   Quando passi un array a una funzione, esso decade a puntatore e **la sua dimensione si perde**.
+*   **Array 1D**: Il compilatore non ha bisogno di conoscere la dimensione nella firma della funzione; si occupa semplicemente di scorrerlo per il numero di volte indicato da una variabile di supporto (es. `dim`).
+*   **Array 2D**: Il compilatore **DEVE** necessariamente conoscere la dimensione della seconda coordinata (`DIM2`), ovvero il numero di colonne. Questo serve a calcolare correttamente l'offset di memoria per passare alla riga successiva.
+
+---
+
+## 🔤 Stringhe
+
+*   `cin.getline(s, DIM)` $\rightarrow$ Legge una linea di testo inserita dall'utente e la salva in `s` fino a un massimo di `DIM` caratteri.
+*   ...
+
+---
+
+## 💡 NOTE IMPORTANTI
+
+> In C++, quando usi un numero intero (`int`) all'interno di un'operazione logica o lo assegni a una variabile booleana, il compilatore effettua una **conversione implicita automatica** (coercizione).
+> 
+> La regola in C++ per questa conversione è:
+> *   `0` (zero) equivale a `false`.
+> *   **Qualsiasi valore diverso da zero** (sia positivo che negativo, ad esempio `-2`) equivale a `true`.
+> 
+> Di conseguenza, una variabile `c` che vale `-2` viene interpretata a tutti gli effetti come `true`.

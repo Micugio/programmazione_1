@@ -1,6 +1,6 @@
 using namespace std;
 #include <iostream>
-#include <iomanip> // definisce setw()
+#include <iomanip> // definisce setw() -> setw(n) stampa n spazi
 
 // STAMPA TAVOLA PITAGORICA
 

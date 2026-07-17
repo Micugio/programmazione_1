@@ -5,6 +5,7 @@ using namespace std;
 int main() {
   int i=1,j=0;
   int *p,*q;
+
   p = &i;
   *p = 3;
   j = *p;

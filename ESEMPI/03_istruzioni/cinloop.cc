@@ -22,12 +22,15 @@ using namespace std;
 
 
 
+// Questa versione è preferita alla versione "cinloopequivalent.cc" perchè è più compatta ed è più facile implementare il codice evitando gli errori.
+
 int main ()
 {
   int sum = 0;
   int x;
 
-  while (cin >> x) {
+  // Legge da input ma è anche condizione di uscità dal ciclo.
+  while (cin >> x) {   // NOTA: lettura fallisce e quindi esce da ciclo SE inserisco un tipo di dato non valido (in questo caso un dato diverso da int) OPPURE da in input comando di END of FILE (cioè "Ctrl" + "D").
     sum = sum + x;
   }
 

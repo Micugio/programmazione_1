@@ -1,6 +1,8 @@
 using namespace std;
 #include <iostream>
 
+// FATTORIALE con STAMPA dello SCHEMA della "ricorsione iterativa"
+
 int depth = 0;
 
 void printspaces(int n)

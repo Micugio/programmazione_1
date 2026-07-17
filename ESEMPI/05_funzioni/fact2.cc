@@ -7,7 +7,7 @@ long long fattoriale;
 //calcolo del fattoriale
 long long fact(int x)
 {
-  std::cout << fattoriale << std::endl;
+  cout << fattoriale << endl;
   {
   long long fattoriale = 1;
   for (int i=1; i<=x; i++)

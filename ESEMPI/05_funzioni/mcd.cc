@@ -4,9 +4,9 @@ using namespace std;
 //variabili globali (per debugging)
 int n1,n2;
 
-int mcd(int, int);
+int mcd(int, int);  // Volendo potrei commentare questa riga (cioè potrei omettere la dichiarazione della funzione) siccome la funzione è inizializzata sopra il main.
 
-int mcd(int  a,int b)
+int mcd(int a,int b)
 {
   int resto;
   while(b!=0) {
@@ -22,8 +22,8 @@ int main ()
 {
   cout << "Inserisci una coppia di numeri: ";
   cin >> n1 >> n2;
-  cout << "Il M.C.D. tra " << n1 <<
-    " e " << n2 <<
-    " vale " << mcd(n1,n2) << endl;
+
+  cout << "Il M.C.D. tra " << n1 << " e " << n2 << " vale " << mcd(n1,n2) << endl;
+
   return 0;
 }

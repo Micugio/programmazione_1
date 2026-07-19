@@ -1,8 +1,7 @@
 #include <iostream>
 using namespace std;
 
-#include "fact4.h"
-// long long fact(int);
+#include "fact4.cc"
 
 int main()
 {
@@ -11,7 +10,9 @@ int main()
 
   cout << "Dammi il numero: ";
   cin >> num;
+
   fattoriale=fact(num);
   cout  << "Fact = "  << fattoriale   << endl;
+  
   return 0;
 }

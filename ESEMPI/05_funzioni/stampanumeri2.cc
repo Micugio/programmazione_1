@@ -1,7 +1,7 @@
 using namespace std;
 #include <iostream>
 
-// RIVEDI BENE con ChatGPT, NON HO CAPITO.
+// NON GUARDARE, ricorsione troppo contorta
 
 void stampa1 (int m, int n) { // m,m+1,...,n-1,n
   if (m<=n) { 
@@ -27,4 +27,3 @@ int main() {
 
   return 0;
 }
-

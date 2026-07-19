@@ -8,7 +8,7 @@ void prova (int x, int & y, const int & z)
        << " z = " << z << endl;
   x = 10;
   y = 20;
-  // z = 30; // errore
+  // z = 30;  // ERRORE, non posso modificare valore di una costante!
   cout << "  x = " << x
        << " y = " << y
        << " z = " << z << endl;
@@ -20,7 +20,7 @@ int main()
   cout << " a = " << a
        << " b = " << b
        << " c = " << c << endl;
-  prova (a,b*3,c*3);
+  prova (a,b,c*3);  // Se al posto di b passo (b*3) è sbagliato!!!
   cout << " a = " << a
        << " b = " << b
        << " c = " << c << endl;

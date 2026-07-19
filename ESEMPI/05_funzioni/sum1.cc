@@ -1,11 +1,8 @@
 using namespace std;
 #include <iostream>
 
-
-// realizzare ricorsivamente 
-// la somma di due numeri avendo a disposizione incrermento 
-// e decremento ++x e --x
-// VERSIONE RICORSIVA (con return)
+// Realizzare ricorsivamente la somma di due numeri avendo a disposizione incremento e decremento ++x e --x.
+// VERSIONE RICORSIVA con return diretto della funzione somma.
 
 int somma (int n, int m) {
   int res;

@@ -1,15 +1,13 @@
 using namespace std;
 #include <iostream>
 
+// Realizzare ricorsivamente la somma di due numeri avendo a disposizione incremento e decremento ++x e --x.
+// VERSIONE RICORSIVA con return di res.
 
-// realizzare ricorsivamente 
-// la somma di due numeri avendo a disposizione incrermento 
-// e decremento ++x e --x
-
-// VERSIONE PROF
+// VERSIONE PROF ()
 int somma (int n, int m) {
   int res;
-  if (m==0) 
+  if (m==0)  // CASO BASE -> NOTA: basta controllare m se è uguale a zero perchè è quello il numero che decremento ad ogni giro.
     res = n;
   else {
     ++n; --m;

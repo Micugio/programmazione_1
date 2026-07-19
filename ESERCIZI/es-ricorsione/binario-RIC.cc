@@ -1,21 +1,20 @@
 #include <iostream>
 using namespace std;
 
-void binario (int n) {
+void binario(int n) {
     if (n<=0) {
         cout << "0";
-        return;
     }
     else if (n==1) {
         cout << "1";
-        return;
     }
     else {
-        binario(n / 2);
-        cout << n % 2;
-        return;
+        //cout << n%2; //ERRORE, stampa il numero binario al contrario!
+        binario(n/2);
+        cout << n%2;
     }
 }
+
 
 int main() {
     int n;
@@ -25,7 +24,7 @@ int main() {
         cin >> n;
     } while (n<0);
 
-    cout << "Numero binario: " << endl;
+    cout << "Numero binario: ";
     binario(n);
     cout << endl;
 

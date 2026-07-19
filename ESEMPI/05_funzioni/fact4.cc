@@ -1,3 +1,6 @@
+#include <iostream>
+using namespace std;
+
 #include "fact4.h"
 
 long long fact(int n) {

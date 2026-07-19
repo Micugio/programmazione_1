@@ -18,8 +18,8 @@ int main()
 {
   cout << maxx(99,77) << " " << maxx(55,66,33) << " "
        << maxx(3.4,7.2) << endl;
-  cout << maxx(44L,44L) << endl; // errore AMBIGUA
-  // cout << maxx(3.1,3) << endl; // errore: AMBIGUA
+  //cout << maxx(44L,44L) << endl; // errore AMBIGUA
+  //cout << maxx(3.1,3) << endl; // errore: AMBIGUA
 
   return 0;
 }

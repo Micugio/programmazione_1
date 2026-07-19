@@ -22,7 +22,7 @@ void printDate(int m, int d, int y)
 {
   if (m < 1 || m > 12 || d < 1 || d > 31 || y < 0) {
     cout << "Error: parameter out of range.\n";
-    return;
+    return;  // È importante avere due return (in questo caso)
   }
   switch (m) {
     case  1:  cout << "January ";   break;
@@ -39,4 +39,6 @@ void printDate(int m, int d, int y)
     case 12:  cout << "December ";  break;
   }
   cout << d << ", " << y << endl;
+  
+  return;  // È importante avere due return (in questo caso)
 }

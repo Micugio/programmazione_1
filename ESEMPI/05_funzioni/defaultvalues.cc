@@ -7,6 +7,14 @@ using namespace std;
 
 double p(double, double, double =0, double =0, double =0);
 
+/*
+// VERSIONE con dichiarazione e definizione iniziale:
+double p(double x, double a0, double a1 = 0, double a2 = 0, double a3 = 0)
+{
+  return a0 + (a1 + (a2 + a3*x)*x)*x;
+}
+*/
+
 int main() 
 {
   double x = 2.0003;

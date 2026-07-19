@@ -1,6 +1,7 @@
 using namespace std;
 #include <iostream>
 
+// Funzione RICORSIVA che somma i numeri da 0 a n.
 int somma(int n) {
   if (n == 0)
     return 0; // caso base

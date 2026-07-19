@@ -2,11 +2,9 @@ using namespace std;
 #include <iostream>
 
 
-// realizzare ricorsivamente 
-// la somma di due numeri avendo a disposizione incrermento 
-// e decremento ++x e --x
-// VERSIONE ITERATIVA
+// Realizzare ricorsivamente la somma di due numeri avendo a disposizione incrermento e decremento ++x e --x.
 
+// VERSIONE ITERATIVA
 int somma (int n, int m) {
   int res;
 

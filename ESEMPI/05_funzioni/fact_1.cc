@@ -1,7 +1,7 @@
 using namespace std;
 #include <iostream>
 
-// FATTORIALE con STAMPA dello SCHEMA della "ricorsione iterativa"
+// FATTORIALE RICORSIVO con STAMPA dello SCHEMA della "ricorsione iterativa"
 
 int depth = 0;
 

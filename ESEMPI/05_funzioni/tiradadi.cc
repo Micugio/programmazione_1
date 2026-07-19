@@ -11,7 +11,7 @@ void haiperso();
 
 int main()
 {
-  int miascelta=1;
+  int miascelta=0;
   int dadi;
 
   inizializza();
@@ -24,24 +24,29 @@ int main()
       dadi = tiradadi();
       cout << dadi << " ";
       if (dadi==miascelta)
-	haivinto();
+	      haivinto();
       else
         haiperso();
     }
   } while ((miascelta>=2)&&(miascelta<=12));
+
   return 0;
 }
 
 void inizializza()
 {
+  srand(time(NULL));
+
+  /*
+  // VERSIONE ALTERNATIVA:
   unsigned int seed = time(NULL);
-  //unsigned int seed = 0;
   srand(seed);
+  */
 }
 
 int tiradado()
 {
-  int dado = rand()%6+1;
+  int dado = (rand()%6)+1;
   return dado;
 }
 

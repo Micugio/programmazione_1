@@ -194,9 +194,9 @@ if (found) {
 
 | Cosa voglio fare | Sintassi | Perché |
 | :--- | :---: | :--- |
-| **Puntare a una variabile normale** | `*p = &x` | `x` non è un indirizzo, serve l'operatore di indirizzo `&` |
-| **Puntare a un puntatore** | `*p = &p` | Serve l'indirizzo di memoria del puntatore stesso |
-| **Copiare un indirizzo già esistente** | `(*p = &x) -> *q = p` | `p` contiene già un indirizzo al suo interno, non serve `&` |
+| **Puntare a una variabile normale** | `int* p = &x` | `x` non è un indirizzo, serve l'operatore di indirizzo `&` |
+| **Puntare a un puntatore** | `int* p = &p` | Serve l'indirizzo di memoria del puntatore stesso |
+| **Copiare un indirizzo già esistente** | `(int* p = &x) -> int* q = p` | `p` contiene già un indirizzo al suo interno, non serve `&` |
 
 ---
 

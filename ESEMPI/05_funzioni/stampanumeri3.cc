@@ -8,7 +8,7 @@ void stampa (int m, int n) { // m,m+1,...,n-1,n
   else {
     cout << m << " ";
     m++;
-    stampa(m,n); // Come la riscrivo per usare ++ come argomento?
+    stampa(m,n); // Come la riscrivo per usare ++ come argomento? -> ++m OPPURE MEGLIO ANCORA m+1
   }
 }
 

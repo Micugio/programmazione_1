@@ -11,9 +11,12 @@ int main ()
 {
   float aliquota = 22;
   float val;
+
   cout << "Valore? ";
   cin >> val;
+
   aggiungi_iva(val, aliquota);
   cout << "Nuovo valore = " << val << endl;
-		return 0;
+	
+  return 0;
 }

@@ -11,8 +11,11 @@ bool isPrime(int);
 int main()
 {
   for (int n = 1; n < 5000; n++)
-    if (isPrime(n)) cout << n << " ";
+    if (isPrime(n)) {
+      cout << n << " ";
+    }
   cout << endl;
+  
   return 0;
 }
 

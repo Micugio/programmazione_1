@@ -16,7 +16,8 @@ int main() {
   int a[DIM1][] = {{1, 2, 3, 4, 5},        // ERRORE: bisogna definire almeno "DIM2", è la più fondamentale perchè indica le colonne
                    {6, 7, 8, 9, 10},       //         (cioè gli elementi di ogni riga prima di dover passare alla riga successiva).
                    {11, 12, 13, 14, 15}};
-  //print(a);
+  
+  print(a);
 
   return 0;
 }

@@ -25,7 +25,7 @@ int main()
   return 0;
 }
 
-//  Linear Search:
+//  Linear Search: -> scorre tutto l'array fino a quando non trova il valore target, restituisce posizione del valore target.
 int search(const double a[], int n, double target)
 {
   bool found;

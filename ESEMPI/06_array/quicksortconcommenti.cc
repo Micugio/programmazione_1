@@ -4,6 +4,14 @@ using namespace std;
 
 const int MAXDIM = 100;
 
+int depth = 0;
+
+void printspaces(int n)
+{
+  for (int i=0;i<n;i++)
+    cout << "   ";
+}
+
 void swap (int & a, int & b)
 {
   int c = a;
@@ -16,17 +24,24 @@ void printarray(int v[],int min,int max)
   int i;
   cout << "[";
   for (i=min;i<=max;i++) {
-    cout << v[i] << " ";
+    cout << setw(2) << v[i] << " ";
   }
   cout << "]\n";
 }
 
 void quicksort1(int v[], int primo, int ultimo) {
+  depth++;
+  printspaces(depth);
+  cout << "> ";
+  printarray(v,primo,ultimo);
+
   if (primo < ultimo) {
-    // begin partition
     int p = primo;
     int u = ultimo;
     int pivot = v[ultimo];
+
+    printspaces(depth);
+    cout << "  pivot = " << pivot << endl;
 
     do {
       while ((p < u) && (v[p] <= pivot))
@@ -35,34 +50,43 @@ void quicksort1(int v[], int primo, int ultimo) {
 								u--;
       if (p < u)
 								swap(v[p],v[u]);
+      printspaces(depth);
+      cout << "  ";
+      printarray(v,primo,ultimo);
     } while (p < u);
 
     swap(v[p],v[ultimo]);
-    // end partition
+
+    printspaces(depth);
+    cout << "= ";
+    printarray(v,primo,ultimo);
+
     quicksort1(v, primo, p-1);
     quicksort1(v, p+1, ultimo);
   }
+  printspaces(depth);
+  cout << "< ";
+  printarray(v,primo,ultimo);
+  depth--;
 }
-
-
 
 void quicksort (int v[],int n)
 {
   quicksort1 (v,0,n-1);
 }
 
+
 int main ()
 {
   //  const int dim = 8;
   int myarray[MAXDIM] =
     {
-					//       7,6,5,4,3,2,1
-					10,3,9,1,5,17,6,41,20,37,2,8,23,0,11,19
+					//  10,3,9,1,5,17,6,41,20,37,2,8,23,0,11,19
 					//  41,3,9,1,5,17,6,20,37,2,8,23,10,0,11,19
 					//  11,12,13,14,15,16,1,2,3,4,5,6,7,8,9,10
+					1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16
     };
-
-  int dim = 16;
+  const int dim = 16;
 
   printarray(myarray,0,dim-1);
   cout << endl;

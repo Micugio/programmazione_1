@@ -34,23 +34,28 @@ void product (const float a[][Dim], const float b[][Dim], float c[][Dim], int d1
   }
 }
 
-void print_matrix (const float a[][Dim],int d1,int d3) {
+void print_matrix (const float a[][Dim],int d1,int d2) {
   for (int i=0; i<d1; i++){
-    for (int j=0; j<d3; j++) {
+    for (int j=0; j<d2; j++) {
       cout << setw(4) << a[i][j];
     }
     cout << endl;
   }
 }
 
+
 int main() {
 	cout << "Matrice A = " << endl;
   print_matrix(A,3,3);
+
 	cout << "Matrice B = " << endl;
   print_matrix(B,3,4);
+
   cout << "IL valore minimo di A e' " << min_matrix(A,3,3) << endl;
+
   product(A,B,C,2,3,4);
   cout << "Il risultato del prodotto e'  " << endl;
   print_matrix(C,2,4);
+
   return 0;
 }

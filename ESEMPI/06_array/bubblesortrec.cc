@@ -20,14 +20,22 @@ void printarray(int v[],int n)
   cout << endl;
 }
 
+// Bubble Sort RICORSIVO:
+void passataRic(int v[], int i, int k) {
+    if (i >= k) return;
+    if (v[i] > v[i+1]) swap(v[i], v[i+1]);
+    passataRic(v, i + 1, k);
+}
 
-void bubblesort (int v[],int n) 
-{
-  int i,k;
-  for (k=n-1;k>0;k--)
-    for (i=0;i<k;i++) 
-      if (v[i] > v[i+1]) 
-        swap(v[i],v[i+1]);
+void bubblesortRic(int v[], int n, int k) {
+    if (k <= 0) return;              // caso base: array ordinato
+    passataRic(v, 0, k);
+    bubblesortRic(v, n, k - 1);
+}
+
+// Funzione originale
+void bubblesort(int v[], int n) {
+    bubblesortRic(v, n, n - 1);
 }
 
 
@@ -38,6 +46,3 @@ int main ()
   bubblesort(myarray,dim);
   printarray(myarray,dim);
 }
-
-  
-  

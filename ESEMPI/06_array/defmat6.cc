@@ -13,14 +13,12 @@ const int DIM2 = 5;
 void print(const int a[][DIM2]);
 
 int main() {
- 
-  int a[DIM1][DIM2] = {{1, 2, 3},
-                        {}};
+  int a[DIM1][DIM2] = {{1, 2, 3, 4, 5},
+                       {6, 7, 8, 9, 10},
+                       {11, 12}};        // NOTA: nell'ultimo sotto array ho inserito sono 2 elementi su 5, quindi quell'array verrà riempito con 3 elementi nulli (zero).
   
-  //int a[DIM1][DIM2] = {{1, 2, 3}}; // NOTA: Funziona ugualmente!!!
-
   print(a);
-  
+
   return 0;
 }
 

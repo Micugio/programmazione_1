@@ -1,11 +1,6 @@
 #include <iostream>
-
-#include<cstdlib>
 #include<ctime>
-
 using namespace std;
-
-
 
 
 void inizializza (int array[], int dim) {
@@ -22,8 +17,6 @@ void stampa (const int array[], int dim) {
     cout << endl;
     return;
 }
-
-
 
 
 int main() {

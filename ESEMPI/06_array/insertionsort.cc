@@ -1,3 +1,12 @@
+void swap(int & n,int & m) {
+  int t;
+  t=n;
+  n=m;
+  m=t;
+  return;
+}
+
+// Insertion Sort ITERATIVO
 void insertionsort(int A[], int N) {
   for(int i = N-1; i > 0; i--)
     if (A[i] < A[i-1]) {

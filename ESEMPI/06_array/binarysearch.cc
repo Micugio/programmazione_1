@@ -1,6 +1,9 @@
 using namespace std;
 #include <iostream>
 
+// Ricerca di un valore target su un array ORDINATO, attraverso la funzione Binary Search.
+// NOTA: se l'array NON è ORDINATO NON FUNZIONA!!!
+
 const int DIM = 100;
 double a[DIM], target; 
 int  found, loc, n;
@@ -25,7 +28,7 @@ int main()
   return 0;
 }
 
-//  Binary Search:
+//  Binary Search: ->  Vuole che l'array sia già ORDINATO!!!
 int search(const double a[], int n, double target)
 {
   bool found=false;

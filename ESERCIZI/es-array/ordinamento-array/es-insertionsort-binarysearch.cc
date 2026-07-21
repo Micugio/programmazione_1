@@ -46,19 +46,7 @@ void insertionsort(int array[], int dim) {
   }
 }
 
-// Selection Sort
-void selectionsort(int array[], int dim) {
-for(int i = 0; i < dim - 1; i++ ){
-  int min = i;
-  for(int j = i+1; j < dim; j++) {
-    if (array[j] < array[min]) min = j;
-  }
-  scambia(array[i],array[min]);
-  }
-  return;
-}
-
-//  Ricerca binaria:
+//  Binary Search::
 int search(const int array[], int dim, int target)
 {
   bool found=false;
@@ -74,6 +62,8 @@ int search(const int array[], int dim, int target)
   }
   return (found ? location : -1);
 }
+
+
 
 int main() {
   const int dim = 6;

@@ -1,4 +1,12 @@
-// Selection Sort
+void swap(int & n,int & m) {
+  int t;
+  t=n;
+  n=m;
+  m=t;
+  return;
+}
+
+// Selection Sort ITERATIVO
 void selectionsort(int A[], int N) {
   for(int i = 0; i < N - 1; i++ ){
     int min = i;

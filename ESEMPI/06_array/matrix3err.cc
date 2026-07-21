@@ -10,7 +10,7 @@ float B[Dim][Dim] = {{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}};
 
 float C[Dim][Dim];
 
-float min_matrix (const float a[][],int d1,int d2) {    //ERRORE: non la seconda dimensione
+float min_matrix (const float a[][],int d1,int d2) {  // ERRORE: non ho passato alla funzione (almeno) la seconda dimensione!!!
   float min = a[0][0];
   int i, j;
 
@@ -44,11 +44,14 @@ void print_matrix (const float a[][Dim],int d1,int d3) {
   }
 }
 
+
 int main() {
   cout << "IL valore minimo di A e' " << min_matrix(A,2,3) << endl;
+
   product(A,B,C,2,3,4);
   cout << "Il risultato del prodotto e'  " << endl;
   print_matrix(C,2,4);
+
   return 0;
 }
 

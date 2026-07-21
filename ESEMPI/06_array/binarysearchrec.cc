@@ -1,6 +1,9 @@
 using namespace std;
 #include <iostream>
 
+// Ricerca di un valore target su un array ordinato, attraverso la funzione RICORSIVA Binary Search.
+// NOTA: se l'array NON è ORDINATO NON FUNZIONA!!!
+
 const int DIM = 100;
 double a[DIM], target; 
 int  found, loc, n;
@@ -26,7 +29,7 @@ int main()
   return 0;
 }
 
-//  Binary Search:
+//  Binary Search RICORSIVA: ->  Vuole che l'array sia già ORDINATO!!!
 int search(const double a[], int n, double target) {
   return search1(a,0,n-1,target);
 }

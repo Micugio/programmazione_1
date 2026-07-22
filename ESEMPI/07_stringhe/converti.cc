@@ -5,7 +5,7 @@ using namespace std;
 
 int main () 
 {
-  const float euro = 1936.27;
+  const float euro = 1936.27;  // Valore in lire di un euro.
 
   int value;
   float liravalue;
@@ -22,7 +22,7 @@ int main ()
   }
 
   // Fai comando CTRL + D sulla tastiera (= fine input, quindi ciclo while diventa false e esce dal ciclo)
-  cout << "Fine programma!";
+  cout << "Fine programma!" << endl;
 
   return 0;
 }

@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cstdlib>
+#include <ctime>
 #include <cassert>
 
 // Non modificare questa parte sotto del codice

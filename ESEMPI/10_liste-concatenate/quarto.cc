@@ -1,6 +1,7 @@
 using namespace std;
 #include <iostream>
 #include <cstdlib>
+#include <ctime>
 #include <cassert>
 
 struct nodo {

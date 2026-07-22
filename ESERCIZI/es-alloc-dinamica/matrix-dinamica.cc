@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cstdlib>
+#include <ctime>
 using namespace std;
 
 // Matrice dimamica con dimensioni passare tramite parametri da riga di comando.

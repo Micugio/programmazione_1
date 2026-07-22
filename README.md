@@ -178,7 +178,8 @@ if (found) {
 *   `toupper(c)`: Converte `c` da minuscolo a MAIUSCOLO (*Nota: funziona solo se `c` è minuscolo*).
 
 ### `<cstdlib>`
-*   `srand(time(NULL));`: Da inserire all'inizializzazione per generare il seed dei numeri casuali.
+*   `srand(time(NULL));`: Da inserire all'inizializzazione per generare il seed dei numeri casuali.   
+    **->NOTA:** per usare `time(NULL)` devi includere la libreria **`<ctime>`**
 *   `rand()`: Genera un numero casuale.
 *   `atoi(argv[1])`: Converte una stringa (C-string) in un valore di tipo `int`.
 *   `atof(argv[2])`: Converte una stringa (C-string) in un valore di tipo `double`.

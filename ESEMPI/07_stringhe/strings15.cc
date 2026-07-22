@@ -10,15 +10,20 @@ int main()
 {
   char s1[] = "ABCDEFG";
   char s2[] = "XYZ";
+
   cout << "Before strcpy(s1,s2):\n";
   cout << "\ts1 = [" << s1 << "], length = " << strlen(s1) << endl;
   cout << "\ts2 = [" << s2 << "], length = " << strlen(s2) << endl;
-  strcpy(s1,s2);
+
+  strcpy(s1,s2); // Copia la stringa s2 NELLA stringa s1.
+                 //   NOTA: copia anche il terminatore di stringa!
   cout << "After strcpy(s1,s2):\n";
   cout << "\ts1 = [" << s1 << "], length = " << strlen(s1) << endl;
   cout << "\ts2 = [" << s2 << "], length = " << strlen(s2) << endl;
-  for(int i = 0; i< 8; i++) {
+
+  for(int i = 0; i < 8; i++) {
     cout << i << " " << s1[i] << endl;
   }
+
   return 0;
 }

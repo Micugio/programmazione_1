@@ -4,13 +4,15 @@
 
 using namespace std;
 #include <iostream>
-const int DIM=20;
+const int DIM=5;
 
 int main()
 {
   char line[DIM];
-  while (cin.getline(line, DIM)) {
+
+  while (cin.getline(line, DIM)) { // Legge righe con dim-1 caratteri
     cout << "\t[" << line << "]\n";
-  };
+  }
+
   return 0;
 }

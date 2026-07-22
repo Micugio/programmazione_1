@@ -18,9 +18,9 @@ int main ()
            << liravalue << endl;
     }
     else { // (cin.fail() ma non cin.eof(
-      char s [100];
-      cin.clear(); // ripristina lo stato normale
-      cin >> s;
+      char s [100]; // Crea un buffer cestino dove inserire la parola letta (che ha generato l'errore)
+      cin.clear(); // Ripristina lo stato normale
+      cin >> s; // Inserisce nel buffer s la parola letta da input.
     }
     cin >> value;
   }

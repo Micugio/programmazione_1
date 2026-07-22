@@ -9,12 +9,17 @@ using namespace std;
 int main()
 {
   char ch, pre = ' ';  // NOTA: pre = ' ', così diventa maiuscola anche la prima lettera della prima parola.
+  
   while (cin.get(ch)) {
-    if (pre == ' ' || pre == '\n')  // (Se carattere precedente è uno spazio o un a capo)
-       cout.put(char(toupper(ch)));
-    else 
-       cout.put(ch);
+    if (pre == ' ' || pre == '\n') {  // (Se carattere precedente è uno spazio o un a capo)
+      cout.put(char(toupper(ch))); // toupper(ch) converte lettera minuscola in Maiuscola però in tipo int, quindi serve il cast di tipo char.
+    }
+    else {
+      cout.put(ch);
+    }
+    
     pre = ch;
   }
+  
   return 0;
 }

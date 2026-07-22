@@ -15,12 +15,15 @@ int main()
   cout << "Before strcat(s1,s2):\n";
   cout << "\ts1 = [" << s1 << "], length = " << strlen(s1) << endl;
   cout << "\ts2 = [" << s2 << "], length = " << strlen(s2) << endl;
+
   strcat(s1,s2);
+  
   cout << "After strcat(s1,s2):\n";
   cout << "\ts1 = [" << s1 << "], length = " << strlen(s1) << endl;
   cout << "\ts2 = [" << s2 << "], length = " << strlen(s2) << endl;
 
   cout << "&s1=" << (long) &s1 << "\n&s2=" << (long) &s2 << endl;
+  
   return 0;
 }
 

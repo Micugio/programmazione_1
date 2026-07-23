@@ -9,11 +9,18 @@ int main ()
 
   for (int i=0;i<15;i++) {
     char * p = new char [mymax];
-    for (int j=0;j<mymax/1024;j++) // "utilizzo" l'array p
-       p[j*1024]=0;    
+
+    for (int j=0;j<mymax/1024;j++) {  // "utilizzo" l'array p
+      p[j*1024]=0;
+    }
+
     cout << "i= " << i << endl;
-    char * q = p; // q stesso indirizzo di p QUINDI q==p, posso deallocare anche con puntatori di nomi diversi, basta che puntino alla stessa cosa.
+
+    char * q = p;  // q stesso indirizzo di p QUINDI q==p, posso deallocare anche con puntatori di nomi diversi, basta che puntino alla stessa cosa.
+
     delete[] q;
   }
+
+  return 0;
 }
 

@@ -19,24 +19,33 @@ int main (int argc, char * argv[])
   
   myin.open(argv[1],ios::in);
   if (myin.fail()) {
-     cerr << "Il file " << argv[1] << " non esiste\n";
-     exit(0);
+    cerr << "Il file " << argv[1] << " non esiste\n";
+    exit(0);
   }
-//   ANALOGO:
-//   if (myin==NULL) {
-//      cerr << "Il file " << argv[1] << " non esiste\n";
-//      exit(0);
-//   }
+
+  /*
+  // ANALOGO:
+  if (myin==NULL) {
+    cerr << "Il file " << argv[1] << " non esiste\n";
+    exit(0);
+  }
+  */
   
   myout.open(argv[2],ios::out);
-  
-  // NOTA: (myin >> value) == (cin >> value)  ->  vedi strings3.cc
-  while (myin >> value) { // Legge caratteri dello stream myin (a cui è associato un file), gli memorizza e gli assegna a value. Fa questo procedimento una parola  
-    liravalue = euro*value;
-    myout << value << " " << fixed << setw(8) << setprecision(0) 
-          << liravalue << endl;
+  if (myout.fail()) {
+    cerr << "Il file " << argv[2] << " non e' scrivibile\n";
+    myin.close();
+    exit(0);
   }
+
+  // NOTA: (myin >> value) == (cin >> value)  ->  vedi strings3.cc
+  while (myin >> value) { // Legge caratteri dello stream myin (a cui è associato un file), gli memorizza e gli assegna a value. Fa questo procedimento una parola (numero) alla volta.
+    liravalue = euro*value;
+    myout << value << " " << fixed << setw(8) << setprecision(0) << liravalue << endl;
+  }
+
   myin.close();
   myout.close();
+  
   return 0;
 }

@@ -4,7 +4,7 @@ using namespace std;
 int main ()
 {
   int * a;
-  int n,i;
+  int n;
 
   cout << (long) &n << endl;
 
@@ -17,12 +17,12 @@ int main ()
 		cout << "&a: " << (long)&a << endl;
 		cout << "a: " << (long)a << endl;
 
-    for (i=0;i<n;i++){
+    for (int i=0; i<n; i++){
       cout << i+1 << ": ";
       cin >> a[i];
     }
 
-    for (i=0;i<n;i++){
+    for (int i=0; i<n; i++){
       cout << a[i] << " &a[" << i << "]: " << (long) &a[i] << endl ;
     }
 

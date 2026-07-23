@@ -186,8 +186,14 @@ if (found) {
 
 ### `<cstring>`
 *   `strlen(s)`: Restituisce la lunghezza della stringa `s` (escludendo il carattere terminatore `\0`).
+*   `strchr(s, c)`: Restituisce un puntatore alla prima occorrenza del carattere `c` nella stringa `s`, oppure `NULL` se `c` non è presente.
+*   `strrchr(s, c)`: Restituisce un puntatore all'ultima occorrenza del carattere `c` nella stringa `s`, oppure `NULL` se `c` non è presente.
+*   `strstr(s, t)`: Restituisce un puntatore alla prima occorrenza della sottostringa `t` nella stringa `s`, oppure `NULL` se `t` non è presente.
 *   `strcpy(s, t)`: Copia e sovrascrive la stringa `t` dentro la stringa `s`, restituendo `s`.
+*   `strncpy(s, t, n)`: Copia `n` caratteri della stringa `t` dentro la stringa `s` e restituisce `s`. Se non è presente `\0` nei primi `n` caratteri, la stringa `s` non sarà ben formata.
 *   `strcat(s, t)`: Concatena in coda la stringa `t` alla stringa `s`, restituendo `s`.
+*   `strncat(s, t, n)`: Concatena `n` caratteri della stringa `t` in coda alla stringa `s` e restituisce `s`. Viene sempre aggiunto il carattere terminatore `\0`.
+*   `strcmp(s, t)`: Confronta le due stringhe e restituisce un valore negativo, nullo (`0`) o positivo se `s` è alfabeticamente minore, uguale o maggiore di `t`.
 
 ---
 
@@ -295,8 +301,48 @@ Funzioni Ricorsive
 
 ## 🔤 Stringhe
 
-*   `cin.getline(s, DIM)` $\rightarrow$ Legge una linea di testo inserita dall'utente e la salva in `s` fino a un massimo di `DIM` caratteri.
-*   ...
+*   `cin.getline(s, n)` $\rightarrow$ Legge da `cin` una riga in `s` fino a capo linea, per un massimo di `n-1` caratteri (il carattere `\n` non viene letto, cioè si ferma); restituisce `0` se incontra la fine del file (`eof`).
+*   `cin.get(c)` $\rightarrow$ Legge da `cin` e salva in `c` un singolo carattere (spaziature comprese), restituendo `c` (oppure `\0` se `c` è `eof`).
+*   `cout.put(c)` $\rightarrow$ Scrive sullo stream `cout` il singolo carattere `c`.
+*   `cin.eof()` $\rightarrow$ Ritorna un valore diverso da `0` se lo stream `cin` ha raggiunto la sua fine (End Of File). Va usato sempre dopo almeno un'operazione di lettura e richiede un separatore dopo l'ultimo elemento letto.
+*   `cin.fail()` $\rightarrow$ Ritorna un valore diverso da `0` se lo stream `cin` ha rilevato uno stato di errore (es. una stringa fornita per un `int`) o un end-of-file. Va usato dopo almeno un'operazione di lettura e non richiede un separatore dopo l'ultimo elemento letto.
+*   `cin.clear()` $\rightarrow$ Ripristina lo stato normale dello stream `cin` dallo stato di errore.
+
+---
+
+## Funzioni che restiuiscono array (statici o dinamici)
+### Restituire array statici
+Una funzione può restituire un array **statico** se **allocato** staticamente al suo **esterno** (array globale o passato come parametro alla funzione):
+```cpp
+// Array globale
+int a[dim] = {1,2,3,4,5,6,7,8,9,dim};
+
+int *times(int k) {
+  for (int i=0; i<dim; i++)
+    a[i]=a[i]*k;
+  return a; 
+}
+```   
+**OPPURE:**
+```cpp
+// Array passato come parametro alla funzione
+int *times(int a[], int k) {
+  for (int i=0; i<dim; i++)
+    a[i]=a[i]*k;
+  return a; 
+}
+```   
+
+### Restituire array dinamici
+Una funzione può restituire un array **dinamico** se **allocato** dinamicamente al suo **interno**:
+```cpp
+int *times(int a[10], int k) {
+  int * b = new int[10];
+  for (int i=0; i<10; i++)
+    b[i]=a[i]*k;
+  return b;
+}
+```   
 
 ---
 
@@ -309,3 +355,4 @@ Funzioni Ricorsive
 > *   **Qualsiasi valore diverso da zero** (sia positivo che negativo, ad esempio `-2`) equivale a `true`.
 > 
 > Di conseguenza, una variabile `c` che vale `-2` viene interpretata a tutti gli effetti come `true`.
+

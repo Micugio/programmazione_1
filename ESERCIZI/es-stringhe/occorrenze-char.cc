@@ -20,16 +20,17 @@ int main () {
     // lettera minuscola
     if (word[i] >= 'a' && word[i] <= 'z') {
       int dist = word[i] - 'a';
-      ++a[dist];
+      ++a[dist];  // UGUALE -> a[dist] = a[dist] + 1;
     }
 
     // lettera maiuscola
     else if (word[i] >= 'A' && word[i] <= 'Z') {
       int dist = word[i] - 'A';
-      ++a[dist];
+      ++a[dist];  // UGUALE -> a[dist] = a[dist] + 1;
     }
   }
 
   stampa(a, 26);
+
   return 0;
 }

@@ -19,33 +19,36 @@ int main (int argc, char * argv[])
 
   myin.open(argv[1],ios::in);
   if (myin.fail()) {
-     cerr << "Il file " << argv[1] << " non esiste\n";
-     exit(0);
+    cerr << "Il file " << argv[1] << " non esiste\n";
+    exit(0);
   }
-//   ANALOGO:
-//   if (myin==NULL) {
-//      cerr << "Il file " << argv[1] << " non esiste\n";
-//      exit(0);
-//   }
+  
+  /*
+  // ANALOGO:
+  if (myin==NULL) {
+    cerr << "Il file " << argv[1] << " non esiste\n";
+    exit(0);
+  }
+  */
 
   myout.open(argv[2],ios::out);
   if (myout.fail()) {
-     cerr << "Il file " << argv[2] << " non e' scrivibile\n";
-     myin.close();
-     exit(0);
+    cerr << "Il file " << argv[2] << " non e' scrivibile\n";
+    myin.close();
+    exit(0);
   }
 
-  // NOTA: "!myin.eof" va usato sempre *DOPO* almeno un'operazione di lettura
-  // Inoltre richiede sempre un separatore dopo l'ultimo elemento letto
-  // altrimenti meglio usare !myin.fail()
+  // NOTA: "!myin.eof" va usato sempre *DOPO* almeno un'operazione di lettura.
+  //        Inoltre richiede sempre un separatore dopo l'ultimo elemento letto altrimenti meglio usare !myin.fail().
   myin >> value;
   while (!myin.fail()) {
     liravalue = euro*value;
-    myout << value << " " << fixed << setw(8) << setprecision(0)
-          << liravalue << endl;
+    myout << value << " " << fixed << setw(8) << setprecision(0) << liravalue << endl;
     myin >> value;
   }
+
   myin.close();
   myout.close();
+
   return 0;
 }

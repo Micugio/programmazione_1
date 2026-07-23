@@ -6,7 +6,6 @@ using namespace std;
 int main (int argc, char * argv[])
 {
   fstream myin,myout;
-
   char c;
 
   if (argc!=3) {
@@ -22,9 +21,8 @@ int main (int argc, char * argv[])
   }
 
   myout.open(argv[2],ios::out);
-
   if (myout.fail()) {
-    myin.close(); // Fondamentale CHIUDERE STREAM dopo che ho letto
+    myin.close();
     cerr << "Il file " << argv[2] << " non e' scrivibile\n";
     exit(0);
   }

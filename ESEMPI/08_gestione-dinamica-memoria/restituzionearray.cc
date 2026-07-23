@@ -26,12 +26,14 @@ int main ()
   printarray(v1);
 
   cout << endl;
-  delete [] v1;
+
+  delete [] v1;  // Prima di allocare di nuovo v1 devo deallocarlo.
   v1= times (v,2);
   printarray(v1);
 
   cout << endl;
-  delete [] v1;
+
+  delete [] v1;  // Prima di allocare di nuovo v1 devo deallocarlo.
   v1 = times (v,3);
   printarray(v1);
   delete [] v1;

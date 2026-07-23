@@ -3,6 +3,8 @@ using namespace std;
 #include <fstream>
 #include <cstdlib>
 
+// ESEMPIO uguale a "copiafile.cc" solo che carattere vengono copiati in append.
+
 int main (int argc, char * argv[])
 {
   fstream myin,myout;
@@ -19,17 +21,19 @@ int main (int argc, char * argv[])
     exit(0);
   }
 
-  myout.open(argv[2],ios::out|ios::app); // NOTA: file aperto in scrittura append
+  myout.open(argv[2],ios::out|ios::app);  // NOTA: file aperto in scrittura append
   if (myout.fail()) {
-    myin.close(); // Fondamentale CHIUDERE STREAM dopo che ho letto
+    myin.close();
     cerr << "Il file " << argv[2] << " non e' scrivibile\n";
     exit(0);
   }
 
-  while (myin.get(c)) { // Uguale a "copiafile.cc" solo che carattere vengono copiati in append
+  while (myin.get(c)) {
     myout.put(c);
   }
+
   myin.close();
   myout.close();
+
   return 0;
 }

@@ -31,7 +31,9 @@ int main (int argc, char * argv[])
     cout << "./a.out <valore> <aliquota>\n";
     return 0;
   }
+  
   aggiungi_iva(val, aliquota);
   cout << "Nuovo valore = " << val << endl;
+
   return 0;
 }

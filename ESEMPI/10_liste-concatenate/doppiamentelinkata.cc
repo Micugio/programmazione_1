@@ -1,3 +1,4 @@
+// ESEMPIO INUTILE, non guardare!
 
 void insert_node(node * x, node * t) {
   t->next = x->next;

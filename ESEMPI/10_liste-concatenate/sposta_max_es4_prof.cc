@@ -4,6 +4,8 @@ using namespace std;
 #include <ctime>
 #include <cassert>
 
+// CONSEGNA: Scrivere una funzione che sposti l’elemento più grande di una lista concatenata nell'ultimo nodo della lista.
+
 struct nodo {
     int dato;
     nodo* succ;
@@ -14,9 +16,10 @@ void spostaMax(nodo *&q);
 void spostaMaxV2(nodo *&q);
 int trovaMax(nodo *q);
 
+
 int main()
 {
-    //srand(time(NULL));
+    srand(time(NULL));
 
     nodo *q = NULL;
 
@@ -114,6 +117,7 @@ int trovaMax(nodo *q)
     return max;
 }
 
+// VERSIONE senza utilizzare la funzione trovaMax
 void spostaMaxV2(nodo *&q) {
   if ( q != NULL && q->succ != NULL) {
     // Ci sono almeno due elementi

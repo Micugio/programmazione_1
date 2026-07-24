@@ -3,10 +3,13 @@ using namespace std;
 
 #include <stdlib.h>
 
+// NON GUARDARE ESEMPIO, usa una lista concatenata CIRCOLARE!
+
 struct node {
   int dato;
   node * next;
 };
+
 
 int main(int argc, char *argv[]) {
   int i;

@@ -75,6 +75,20 @@ void stampa_ric(nodo * s, int i = 0) {
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+// NOTA: è già una funzione ricorsiva!
+void insert_first(nodo * &s, int d) {
+  // Creo il nuovo nodo e memorizzo il valore utilizzando costruttore
+  // ad un solo argomento
+  nodo * n = new nodo;
+  n->dato = d;
+  // Il campo next di n punta a s
+  n->next = s;
+  // s punt a nuovo nodo n
+  s = n;
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 // VERSIONE ITERATIVA: 
 void insert_last(nodo * & s, int d) {
   nodo * n = new nodo;
@@ -112,20 +126,6 @@ void insert_last_ric(nodo*& s, int d) {
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// NOTA: è già una funzione ricorsiva!
-void insert_first(nodo * &s, int d) {
-  // Creo il nuovo nodo e memorizzo il valore utilizzando costruttore
-  // ad un solo argomento
-  nodo * n = new nodo;
-  n->dato = d;
-  // Il campo next di n punta a s
-  n->next = s;
-  // s punt a nuovo nodo n
-  s = n;
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 // VERSIONE ITERATIVA: Inserisce un nodo contenente un valore (d) mantenendo l'ordine della lista (NOTA: da usare su liste ordinate).
 void insert_order(nodo * & s, int d) {
   if ((s == NULL) || (s->dato >= d)) {
@@ -158,6 +158,94 @@ void insert_order_ric(nodo*& s, int d) {
 
   // caso ricorsivo: avanzo nella lista
   insert_order_ric(s->next, d);
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// VERSIONE ITERATIVA: Inserisce un nodo (n) dopo il primo nodo che contiene il valore num (in questo caso num=5).
+void insert_after_num(nodo * s, nodo * n) {
+  // Uso un puntatore di scorrimento q inizializzato alla testa della lista
+  nodo * q = s;
+  
+  // Scorro la lista finché non finisce e finché non trovo il dato 5
+  while ((q != NULL) && (q->dato != 5)) {
+    q = q->next;
+  }
+  
+  // Se q non è NULL, significa che sono uscito dal while perché ho trovato il 5
+  if (q != NULL) {
+    // Collego il campo next del nuovo nodo al nodo successivo al 5
+    n->next = q->next;
+    // Collego il campo next del nodo con il 5 al nuovo nodo
+    q->next = n;
+  }
+}
+
+// VERSIONE RICORSIVA: Inserisce un nodo (n) dopo il primo nodo che contiene il valore num (in questo caso num=5).
+void insert_after_num_ric(nodo * s, nodo * n) {
+  // Caso base 1: la lista è vuota (o siamo arrivati alla fine senza trovare il 5)
+  if (s == NULL) {
+    return; 
+  }
+  
+  // Caso base 2: abbiamo trovato il nodo con il valore 5
+  if (s->dato == 5) {
+    n->next = s->next;
+    s->next = n;
+    return;
+  }
+  
+  // Caso ricorsivo: avanzo al nodo successivo
+  insert_after_num_ric(s->next, n);
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// VERSIONE ITERATIVA: Inserisce un nodo (n) prima del primo nodo che contiene il valore num (in questo caso num=5).
+void insert_before_num(nodo * & s, nodo * n) {
+  // Se la lista è vuota, non c'è nessun 5, quindi terminiamo
+  if (s == NULL) {
+    return;
+  }
+
+  // Caso speciale: il 5 è nel primissimo nodo (inserimento in testa)
+  if (s->dato == 5) {
+    n->next = s;
+    s = n;
+    return;
+  }
+
+  // Caso generale: cerco il 5 nel resto della lista.
+  // Mi fermo un nodo PRIMA per poter aggiornare il campo next.
+  nodo * q = s;
+  while ((q->next != NULL) && (q->next->dato != 5)) {
+    q = q->next;
+  }
+
+  // Se q->next non è NULL, significa che q->next->dato è 5
+  if (q->next != NULL) {
+    n->next = q->next;
+    q->next = n;
+  }
+}
+
+// VERSIONE RICORSIVA: Inserisce un nodo (n) prima del primo nodo che contiene il valore num (in questo caso num=5).
+void insert_before_num_ric(nodo * & s, nodo * n) {
+  // Caso base 1: lista vuota (o 5 non trovato) -> terminiamo
+  if (s == NULL) {
+    return;
+  }
+
+  // Caso base 2: abbiamo trovato il nodo con il 5
+  if (s->dato == 5) {
+    n->next = s; // Il nuovo nodo punta al nodo col 5
+    s = n;       // Il puntatore (head o next precedente) punta al nuovo nodo
+    return;
+  }
+
+  // Caso ricorsivo: avanziamo nella lista
+  // Poiché s è passato per riferimento, passiamo il riferimento al campo next
+  insert_before_num_ric(s->next, n);
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -216,33 +304,44 @@ void remove_element_ric(nodo* &p, int d) {
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // VERSIONE ITERATIVA: Reverse con side effect sulla lista originaria.
-nodo * reverse(nodo * x) {
-  nodo * t;
-  nodo * y = x;
-  nodo * r = NULL;
+void reverse(nodo *& x) {
+  nodo * prev = NULL;
+  nodo * curr = x;
+  nodo * next = NULL;
 
-  while ( y != NULL ) {
-    t = y->next;
-    y->next = r;
-    r = y;
-    y = t;
+  while (curr != NULL) {
+    next = curr->next;  // Salva il resto della lista
+    curr->next = prev;  // Inverte il puntatore del nodo corrente
+    prev = curr;        // prev avanza al nodo appena processato
+    curr = next;        // curr avanza al nodo successivo da processare
   }
-  return r;
+  
+  // Aggiorna il puntatore originale del chiamante
+  // in modo che punti al nuovo primo nodo (ex ultimo)
+  x = prev;
 }
 
 // VERSIONE RICORSIVA: Reverse con side effect sulla lista originaria.
-// Funzione ausiliaria ricorsivo con accumulatore
-nodo* reverse_aux(nodo* x, nodo* r) {
-  if (x == NULL) {
-    return r;               // caso base: lista finita
+void reverse_ric(nodo *& x) {
+  // Caso base: lista vuota o con un solo nodo (è già "invertita")
+  if (x == NULL || x->next == NULL) {
+    return;
   }
-  nodo* t = x->next;        // salvo il prossimo nodo
-  x->next = r;              // inserisco x in testa all'accumulatore
-  return reverse_aux(t, x); // ricorsione sul resto della lista
-}
-// Funzione principale
-nodo* reverse_ric(nodo* x) {
-  return reverse_aux(x, NULL);
+
+  // 1. Salviamo il puntatore al resto della lista
+  nodo * rest = x->next;
+
+  // 2. Chiamata ricorsiva sul resto della lista.
+  // Poiché 'rest' è passato per referenza, a fine chiamata conterrà
+  // il puntatore alla NUOVA testa (l'ex ultimo elemento).
+  reverse_ric(rest);
+
+  // 3. Invertiamo il legame: il nodo successivo (rest) deve puntare indietro a 'x'
+  x->next->next = x;
+  x->next = NULL;
+
+  // 4. Aggiorniamo 'x' per farlo puntare alla nuova testa risalita dalla ricorsione
+  x = rest;
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -341,6 +440,56 @@ nodo* prec_ric(nodo* s, nodo* x) {
   }
   // Ricorsione sul nodo successivo
   return prec_ric(s->next, x);
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// VERSIONE ITERATIVA: Duplica una lista (ritorna il nodo in testa della nuova lista)
+nodo* copia(nodo* s) {
+  if (s == NULL) {       // lista originale vuota
+    return NULL;
+  }
+
+  nodo* testaNuova = NULL;  // testa della nuova lista
+  nodo* ultimo = NULL;      // puntatore all'ultimo nodo della nuova lista
+  nodo* corrente = s;          // puntatore per scorrere la lista originale
+
+  while (corrente != NULL) {
+    // Creo un nuovo nodo
+    nodo* nuovo = new nodo;
+    nuovo->dato = corrente->dato;
+    nuovo->next = NULL;
+
+    if (testaNuova == NULL) {
+      // primo nodo: inizializzo la testa della nuova lista
+      testaNuova = nuovo;
+    } 
+    else {
+      // collego il nuovo nodo all'ultimo nodo della nuova lista
+       ultimo->next = nuovo;
+      }
+
+    // aggiorno l'ultimo nodo
+    ultimo = nuovo;
+
+    // passo al prossimo nodo della lista originale
+    corrente = corrente->next;
+  }
+
+  return testaNuova;  // restituisco la testa della nuova lista
+}
+
+// VERSIONE RICORSIVA: Duplica una lista (ritorna il nodo in testa della nuova lista).
+nodo  * copia_ric(nodo  * s) {
+  if (s == NULL) {
+    return NULL;   // caso base: lista vuota
+  }
+  else {
+    nodo* t = new nodo;
+    t->dato = s->dato;
+    t->next = copia_ric(s->next);  // collegamento al ritorno
+    return t;                      // ritorna SEMPRE la testa, perchè dopo il ritorno di tutta la ricorsione t punta alla testa
+  }
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -458,56 +607,6 @@ nodo  * concatena_new_ric(nodo  *s1, nodo  *s2) {
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// VERSIONE ITERATIVA: Duplica una lista (ritorna il nodo in testa della nuova lista)
-nodo* copia(nodo* s) {
-  if (s == NULL) {       // lista originale vuota
-    return NULL;
-  }
-
-  nodo* testaNuova = NULL;  // testa della nuova lista
-  nodo* ultimo = NULL;      // puntatore all'ultimo nodo della nuova lista
-  nodo* corrente = s;          // puntatore per scorrere la lista originale
-
-  while (corrente != NULL) {
-    // Creo un nuovo nodo
-    nodo* nuovo = new nodo;
-    nuovo->dato = corrente->dato;
-    nuovo->next = NULL;
-
-    if (testaNuova == NULL) {
-      // primo nodo: inizializzo la testa della nuova lista
-      testaNuova = nuovo;
-    } 
-    else {
-      // collego il nuovo nodo all'ultimo nodo della nuova lista
-       ultimo->next = nuovo;
-      }
-
-    // aggiorno l'ultimo nodo
-    ultimo = nuovo;
-
-    // passo al prossimo nodo della lista originale
-    corrente = corrente->next;
-  }
-
-  return testaNuova;  // restituisco la testa della nuova lista
-}
-
-// VERSIONE RICORSIVA: Duplica una lista (ritorna il nodo in testa della nuova lista).
-nodo  * copia_ric(nodo  * s) {
-  if (s == NULL) {
-    return NULL;   // caso base: lista vuota
-  }
-  else {
-    nodo* t = new nodo;
-    t->dato = s->dato;
-    t->next = copia_ric(s->next);  // collegamento al ritorno
-    return t;                      // ritorna SEMPRE la testa, perchè dopo il ritorno di tutta la ricorsione t punta alla testa
-  }
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 int main() {
@@ -563,8 +662,18 @@ int main() {
   insert_last_ric(L2, 22);
   insert_order_ric(L2, 0);
   remove_element_ric(L2, 22);
-  L2 = reverse(L2);
-  L2 = reverse_ric(L2);
+
+  cout << endl;
+  cout << "Lista L2:" << endl;
+  stampa(L2);
+
+  reverse(L2);
+  reverse_ric(L2);
+
+  cout << endl;
+  cout << "Lista L2:" << endl;
+  stampa(L2);
+  
   s = get_n_ric(L2, 3);
   cout << "Valore elemento 3 di L1 = " << s->dato << endl;
   s = prec_ric(L2, L2->next);

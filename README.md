@@ -25,6 +25,11 @@ cd /mnt/c/esempiP1
 ```
 
 ---
+## 👀 Scorciatoie da tastiera per Visual Studio Code
+* `CTRL + SHIFT + V` = attiva modalità visualizzazione file MarkDown.
+* `CTRL + F` = cerca parole nel file attuale.
+
+---
 
 ## 🐙 Git
 

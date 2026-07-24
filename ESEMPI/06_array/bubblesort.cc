@@ -20,7 +20,7 @@ void printarray(int v[],int n)
   cout << endl;
 }
 
-// Bubble Sort ITERATIVO:
+// Bubble Sort ITERATIVO (ordina array in ordine crescente):
 void bubblesort (int v[],int n) 
 {
   int i,k;

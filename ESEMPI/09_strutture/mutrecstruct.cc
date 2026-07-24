@@ -1,8 +1,8 @@
 using namespace std;
 #include <iostream>
 
+struct S1;  // NOTA: non è necessario dichiarare prima anche S1 ma lo faccio per essere più ordinato.
 struct S2;  // dichiarazione di S2
-struct S1;
 
 struct S1 {
   int value;

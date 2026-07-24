@@ -1,8 +1,8 @@
 using namespace std;
 #include <iostream>
 
-struct complex { double re, im; };
 
+struct complex { double re, im; };
 
 
 int main ()
@@ -17,8 +17,8 @@ int main ()
   cout << endl;
 
   complex *pc = &c;
-  pc->re = 3;
-  pc->im = 3;
+  pc->re = 3;  // UGUALE a: (*pc).re = 3;
+  pc->im = 3;  // UGUALE a: (*pc).im = 3;
 
   cout << "c = ";
   cout << "  Re: " << c.re;

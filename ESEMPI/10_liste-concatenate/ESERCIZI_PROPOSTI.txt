@@ -1,35 +1,35 @@
 ESERCIZI PROPOSTI
 
-* Scrivere una funzione che determini se l'oggetto t precede un
+1. Scrivere una funzione che determini se l'oggetto t precede un
   dato oggetto x
   - Se x primo elemento ritornare x stesso.
 
-* Scrivere una funzione che ritorni true se un elemento x occorre
+2. Scrivere una funzione che ritorni true se un elemento x occorre
   nella lista, false se l'elemento non occorre.
 
-* Scrivere una funzione che costruisca una copia di una data lista
+3. Scrivere una funzione che costruisca una copia di una data lista
   (cioè, una nuova lista che contiene le stesse informazioni nello
   stesso ordine).
 
-* Scrivere una funzione che sposti l’elemento più grande di una
+4. Scrivere una funzione che sposti l’elemento più grande di una
   lista concatenata nell'ultimo nodo della lista.
 
-* Scrivere una funzione che sposti l'elemento più piccolo di una lista
+5. Scrivere una funzione che sposti l'elemento più piccolo di una lista
   concatenata nel primo nodo della lista.
 
-* Scrivere una funzione che costruisca la lista risultante dalla
+6. Scrivere una funzione che costruisca la lista risultante dalla
   concatenazione di due liste x e y.
   - Diverse soluzioni sono possibili:
     . Side effects sulla lista destinazione.
     . Nuova lista.
 
-* Scrivere una funzione che cancella un elemento x da una lista
+7. Scrivere una funzione che cancella un elemento x da una lista
   doppiamente concatenata s.
 
-* Scrivere una funzione che inserisce un elemento x in una lista
+8. Scrivere una funzione che inserisce un elemento x in una lista
   doppiamente concatenata s.
 
-* Problema di Giuseppe Flavio:
+9. Problema di Giuseppe Flavio:
   - Immaginiamo che N persone debbano eleggere un leader.
   - L’elezione avviene nel seguente modo:
     . le persone si dispongono in cerchio, eliminando una persona ogni

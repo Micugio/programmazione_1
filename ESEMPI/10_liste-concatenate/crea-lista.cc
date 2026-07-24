@@ -1,6 +1,6 @@
 #include <iostream>
-
 using namespace std;
+
 
 // Struttura lista di interi
 struct nodo {
@@ -8,7 +8,8 @@ struct nodo {
   nodo * next;
 };
 
-// Crea un nodo e lo inserisce in fondo
+
+// Crea un nodo e lo inserisce sempre dopo la testa
 void insert_node (nodo * x, nodo * t) {
   t->next = x->next;
   x->next = t;
@@ -22,6 +23,7 @@ void stampa(nodo * s) {
     s = s->next;
   }
 }
+
 
 int main() {
   
@@ -43,7 +45,7 @@ int main() {
     cout << "valore= " << s->dato << endl;
   }
   
-  //stampa(x);
+  //stampa(x);  // Chiamata alla funzione commentata perchè fa la stessa cosa del for sopra.
 
   return 0;
 }

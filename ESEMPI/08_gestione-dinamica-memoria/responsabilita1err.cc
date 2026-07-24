@@ -10,16 +10,12 @@ void get(double*, int&);
 void print(double*, int);
 
 int main() {
-  //double* a;
+  double* a;
   int n;
-
-  double* a = new double [n];
 
   get(a, n);
   print(a, n);
   delete [] a;
-
-  double *a = new double [n];
 
   get(a, n);
   print(a, n);

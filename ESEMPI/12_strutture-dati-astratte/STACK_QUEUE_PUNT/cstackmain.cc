@@ -1,8 +1,9 @@
 #include <iostream>
-
 using namespace std;
 
 #include "cstack.h"
+
+
 // Conversione di una espressione da infissa a postfissa
 // e.g. infissa  : ((1 + 10) * (20 + 30)) + 40
 //      postfissa: 1 10 + 20 30 + * 40 +
@@ -36,26 +37,29 @@ void inf2post(const char * e) {
   StackDeinit(s);
 }
 
-// Rimuove un elemento da uno stack mantenendo ordine di quello che
-// era esistente prima.
-//
 // Esempio di Applicazione pratica:
 // Ho un treno composto da vagoni a b c d e f, ho un binario di
 // supporto e voglio rimuovere vagone d mantenendo ordine.
+//
+// Rimuove l'elemento c dallo stack mantenendo l'ordine.
 bool uncouple(Stack & s, char c) {
   Stack s1 = StackInit();
   bool result = false;
 
   while ((! StackIsEmpty(s)) && (result == false)) {
     char r;
-    Top(s, r); Pop(s);
+    Top(s, r);
+    Pop(s);
+
     if (r == c) {
       result = true;
-      break;
+      //break;
     }
-    else
+    else {
       Push(s1, r);
+    }
   }
+
   while(! StackIsEmpty(s1)) {
     char r;
     Top(s1, r);

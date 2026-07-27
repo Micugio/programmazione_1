@@ -1,5 +1,7 @@
 // ESEMPIO INUTILE, non guardare!
 
+// ESEMPIO per liste DOPPIAMENTE CONCATENATE
+
 void insert_node(node * x, node * t) {
   t->next = x->next;
   t->next->prev = t;

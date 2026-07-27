@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <cmath>
 using namespace std;
 
 
@@ -43,16 +44,21 @@ nodo * reverse(nodo * x) {
   return r;
 }
 */
-void reverse(nodo * & x) {
-  nodo * t;
-  nodo * y = x;
+void reverse(nodo *& x) {
+  nodo * prev = NULL;
+  nodo * curr = x;
+  nodo * next = NULL;
 
-  while ( y != NULL ) {
-    t = y->next;
-    y->next = x;
-    x = y;
-    y = t;
+  while (curr != NULL) {
+    next = curr->next;  // Salva il resto della lista
+    curr->next = prev;  // Inverte il puntatore del nodo corrente
+    prev = curr;        // prev avanza al nodo appena processato
+    curr = next;        // curr avanza al nodo successivo da processare
   }
+  
+  // Aggiorna il puntatore originale del chiamante
+  // in modo che punti al nuovo primo nodo (ex ultimo)
+  x = prev;
 }
 
 void remove_element(nodo * & p, int d) {
@@ -83,6 +89,46 @@ void stampa(nodo * s) {
   while(s != NULL) {
     cout << "Elemento " << i++ << " = " << s->dato << endl;
     s = s->next;
+  }
+}
+
+void remove_first(nodo * & s) {
+  if (s != NULL) {
+    nodo * t = s;
+    s = s->next;
+    delete t;
+  }
+}
+
+void remove(nodo * & x) {
+  nodo * y = x->next;
+  x->next = y->next;
+  y->next = NULL;
+  delete y;
+}
+
+bool non_primalita (int n) {
+  if (n <= 1) {
+    return true;
+  }
+  for (int i = 2; i <= sqrt(n); i++) {
+    if (n % i == 0) {
+      return true;
+    }
+  }
+  return false;
+}
+void primizzaLista(nodo * s) {
+  nodo * t = s;
+  if (non_primalita(t->next->dato)) {
+    remove(t);
+  }
+  t = t->next;
+  while(t != NULL) {
+    if (non_primalita(t->next->dato)) {
+      remove(t);
+    }
+    t = t->next;
   }
 }
 
@@ -117,12 +163,12 @@ int main(int argc, char * argv[]) {
   }
 
   nodo * s = new nodo;
-  s->next = NULL;
 
-  myin.getline(buffer, 256);
-  s->dato = atoi(buffer);
+  myin >> buffer;
+  int numero = atoi(buffer);
+  s->dato = numero;
 
-  while (myin.getline(buffer, 256)) {
+  while (myin >> buffer) {
     int numero = atoi(buffer);
     insert_last(s, numero);
   }
@@ -130,11 +176,16 @@ int main(int argc, char * argv[]) {
   myin.close();
 
   stampa(s);
-
   cout << endl;
-
+  
+  /*
   //s = reverse(s);
   reverse(s);
+  stampa(s);
+  cout << endl;
+  */
+
+  primizzaLista(s);
   stampa(s);
 
   delete_list(s);

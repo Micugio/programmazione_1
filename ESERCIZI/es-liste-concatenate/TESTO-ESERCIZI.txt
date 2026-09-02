@@ -1,25 +1,25 @@
 ESERCIZI PROPOSTI:
 
-* Scrivere una funzione che determini se l'oggetto t precede un
+1. Scrivere una funzione che determini se l'oggetto t precede un
   dato oggetto x
   - Se x primo elemento ritornare x stesso.
     -> Cioè devo trovare il valore x e restituire il valore precedente t, però se il valore x è il primo elemento della lista devo restituire lui.
 
-* Scrivere una funzione che ritorni true se un elemento x (numero) occorre
-  nella lista, false se l'elemento non occorre.
+2. Scrivere una funzione che ritorni true se un elemento x (numero) occorre
+  nella lista, false se l'elemento non occorre.     OK
 
-* Scrivere una funzione che costruisca una copia di una data lista
+3. Scrivere una funzione che costruisca una copia di una data lista
   (cioè, una nuova lista che contiene le stesse informazioni nello
-  stesso ordine). 
+  stesso ordine).    OK
 
-* Scrivere una funzione che sposti l’elemento più grande di una
+4. Scrivere una funzione che sposti l’elemento più grande di una
   lista concatenata nell'ultimo nodo della lista.
 
-* Scrivere una funzione che sposti l'elemento più piccolo di una lista
+5. Scrivere una funzione che sposti l'elemento più piccolo di una lista
   concatenata nel primo nodo della lista.
 
-* Scrivere una funzione che costruisca la lista risultante dalla
+6. Scrivere una funzione che costruisca la lista risultante dalla
   concatenazione di due liste x e y.
   - Diverse soluzioni sono possibili:
     . Side effects sulla lista destinazione.
-    . Nuova lista.
+    . Nuova lista.   OK

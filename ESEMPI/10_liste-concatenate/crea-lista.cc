@@ -24,6 +24,18 @@ void stampa(nodo * s) {
   }
 }
 
+void delete_list(nodo * & s) {
+  // Alla fine la lista e' vuota.
+  while(s != NULL) {
+    // Salvo il valore del nodo corrente
+    nodo * t = s;
+    // Avanzo al nodo sucessivo
+    s = s->next;
+    // Dealloco il nodo salvato
+    delete t;
+  }
+}
+
 
 int main() {
   
@@ -46,6 +58,8 @@ int main() {
   }
   
   //stampa(x);  // Chiamata alla funzione commentata perchè fa la stessa cosa del for sopra.
+  
+  delete_list(x);  // Chiamata alla funzione aggiunta da me per cancellare la lista creata ed evitare memory leak.
 
   return 0;
 }

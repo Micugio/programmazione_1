@@ -352,7 +352,8 @@ nodo * reverse_copia(nodo * x) {
 
   while(x != NULL) {
     nodo * t = new nodo;
-    t->dato = x->dato; t->next = r;
+    t->dato = x->dato;
+    t->next = r;
     r = t;
     x = x->next;
   }

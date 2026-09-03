@@ -77,40 +77,11 @@ nodo * concatena(nodo * a, nodo * b) {
   return s;
 }
 
-/*
-nodo * copia(nodo * a) {
-  nodo * s = NULL; // Inizializza a NULL per coprire nativamente il caso di lista vuota
-
-  if (a != NULL) {
-    // 1. Alloca e copia il primo nodo per la nuova testa
-    s = new nodo;
-    s->dato = a->dato;
-    s->next = NULL;
-    
-    nodo * k = s;         
-    nodo * t = a->next;   
-
-    // 2. Ciclo per i restanti nodi
-    while (t != NULL) {
-      nodo * q = new nodo;
-      q->dato = t->dato;
-      q->next = NULL;
-      
-      k->next = q;        
-      k = k->next;        
-      t = t->next;        
-    }
-  }
-  
-  return s; // Unico punto di uscita della funzione
-}
-*/
-
 nodo * copia(nodo * a) {
   nodo * s = NULL;
   nodo * t = a;
   if (t!=NULL) {
-    nodo * s = new nodo;
+    s = new nodo;
     nodo * k = s;
     s->dato = t->dato;
     s->next = NULL;
@@ -124,21 +95,99 @@ nodo * copia(nodo * a) {
       t = t->next;
     }
   }
-
   return s;
 }
 
 int restituisci(nodo * s, int x) {
   int t = 0;
-
-  if (s!=NULL && s->dato==x) {
-    t = x;
-    while (s!=NULL && s->next->dato!=x) {
-      s = s->next;
+  if (s!=NULL) {
+    if (s->dato==x) {
+      t = x;
     }
-    t = s->dato;
+    else {
+      while (s->next!=NULL && s->next->dato!=x) {
+        s = s->next;
+      }
+      if (s->next != NULL) {
+        t = s->dato;
+      }
+    }
   }
   return t;
+}
+
+void remove_element(nodo * & p, int d) {
+  if (p != NULL) {
+    nodo* q = p;
+    if (q->dato == d) {
+      p = p->next;
+      delete q;
+    }
+    else {
+      while(q->next != NULL) {
+        if (q->next->dato == d) {
+          nodo* r = q->next;
+          q->next = q->next->next;
+          delete r;
+          return;
+        }
+        if (q->next != NULL) {
+          q=q->next;
+        }
+      }
+    }
+  }
+}
+
+void sposta_max(nodo * & s) {
+  nodo * t = s;
+  if (t!=NULL) {
+    int max = t->dato;
+    while(t!=NULL) {
+      if (t->dato > max) {
+        max = t->dato;
+        t = t->next;
+      }
+      else {
+        t = t->next;
+      }
+    }
+    remove_element(s, max);
+    nodo * n_max = new nodo;
+    n_max->dato = max;
+    n_max->next = s;
+    s = n_max;
+  }
+}
+
+void sposta_min(nodo * & s) {
+  nodo * t = s;
+  if (t!=NULL) {
+    int min = t->dato;
+    while(t!=NULL) {
+      if (t->dato < min) {
+        min = t->dato;
+        t = t->next;
+      }
+      else {
+        t = t->next;
+      }
+    }
+    remove_element(s, min);
+    nodo * ultimo = s;
+    nodo * n_min = new nodo;
+    n_min->dato = min;
+    n_min->next = NULL;
+    if (ultimo!=NULL) {
+      while(ultimo->next!=NULL) {
+      ultimo = ultimo->next;
+      }
+      ultimo->next = n_min;
+    }
+    else {
+      s = n_min;
+    }
+  }
 }
 
 
@@ -170,11 +219,56 @@ int main() {
   nodo * L4 = copia(L3);
   stampa(L4);
 
+  nodo * vuota = NULL;
+
+
+  nodo * testa = new nodo;
+  testa->dato = 2;
+  testa->next = NULL;
+
+
+  nodo * n1 = new nodo;
+  nodo * n2 = new nodo;
+  nodo * n3 = new nodo;
+
+  n1->dato = 1;
+  n1->next = n2;
+
+  n2->dato = 9;
+  n2->next = n3;
+
+  n3->dato = 22;
+  n3->next = NULL;
+
+  cout << endl;
+
   int t = restituisci(L4, 2);
   cout << "Il valore precedente a 2 contenuto nella lista L4 è: " << t << endl;
 
+  t = restituisci(vuota, 2);
+  cout << "Il valore precedente a 2 contenuto nella lista vuota è: " << t << endl;
+
+  t = restituisci(testa, 2);
+  cout << "Il valore precedente a 2 contenuto nella lista testa è: " << t << endl;
+
+  t = restituisci(n1, 2);
+  cout << "Il valore precedente a 2 contenuto nella lista n1-n2 è: " << t << endl;
+
+  cout << endl;
+
+  sposta_max(n1);
+  stampa(n1);
+
+  cout << endl;
+
+  sposta_min(n1);
+  stampa(n1);
+
   delete_list(L3);
   delete_list(L4);
+  delete_list(vuota);
+  delete_list(testa);
+  delete_list(n1);   // NOTA: Fa la delete della lista costruita con i nodi n1 e n2.
 
   /*
   // NOTA: non bisogna fare la delete delle liste L1 e L2 perchè con la concatenazione ora fanno parte di L3 di cui ho già fatto la delete.

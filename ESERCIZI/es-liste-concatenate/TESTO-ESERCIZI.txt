@@ -4,6 +4,7 @@ ESERCIZI PROPOSTI:
   dato oggetto x
   - Se x primo elemento ritornare x stesso.
     -> Cioè devo trovare il valore x e restituire il valore precedente t, però se il valore x è il primo elemento della lista devo restituire lui.
+  OK
 
 2. Scrivere una funzione che ritorni true se un elemento x (numero) occorre
   nella lista, false se l'elemento non occorre.     OK
@@ -14,9 +15,13 @@ ESERCIZI PROPOSTI:
 
 4. Scrivere una funzione che sposti l’elemento più grande di una
   lista concatenata nell'ultimo nodo della lista.
+4-variante. Scrivere una funzione che sposti l’elemento più grande di una
+  lista concatenata nel primo nodo della lista.    OK
 
 5. Scrivere una funzione che sposti l'elemento più piccolo di una lista
   concatenata nel primo nodo della lista.
+5-variante. Scrivere una funzione che sposti l’elemento più piccolo di una
+  lista concatenata nell'ultimo nodo della lista.   OK
 
 6. Scrivere una funzione che costruisca la lista risultante dalla
   concatenazione di due liste x e y.

@@ -1,7 +1,7 @@
 using namespace std;
 #include <iostream>
 
-#include "structqueue.h"
+#include "reception.h"
 
 
 static bool emptyp (const queue & Q) 
@@ -71,20 +71,6 @@ void print(const queue & Q)
         first = first->next;
     }
 }
-
-/*
-// VERSIONE CON DO-WHILE
-void print(const queue & Q) 
-{ 
-  if (!emptyp(Q)) {
-    node * first=Q.head;
-    do {
-      cout << first->val << endl;
-      first = first->next;
-    } while (first != NULL);
-  }
-}
-*/
 
 void deinit(queue & Q) {
   while (!emptyp(Q))

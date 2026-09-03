@@ -1,14 +1,23 @@
-using namespace std;
 #include <iostream>
-#include "structqueue.h"
+#include "reception.h"
+using namespace std;
 
-// COMPILARE CON: g++ structqueue.cc structqueuemain.cc
+// COMPILARE CON: g++ reception.cc receptionmain.cc
 
-// NOTA:
-// STACK_QUEUE_PUNT/structqueuemain.cc == STACK_QUEUE_ARRAY/structqueuemain.cc
+int main () {
+  
 
-int main () 
-{
+
+
+
+
+  return 0;
+}
+
+
+
+/*
+int main () {
   char res;
   int num;  
   queue q;
@@ -50,3 +59,4 @@ int main ()
   } while (res != 'x');  
   deinit(q);
 }
+*/

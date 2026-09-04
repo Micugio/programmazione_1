@@ -10,7 +10,7 @@ using namespace std;
 int main () 
 {
   char res;
-  int num;  
+  int num;
   queue q;
   
   init(q);

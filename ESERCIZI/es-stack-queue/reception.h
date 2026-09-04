@@ -7,8 +7,8 @@ using namespace std;
 #include <iostream>
 
 struct node {
-int val;
-node * next;
+  int val;
+  node * next;
 };
 
 struct queue {
@@ -16,16 +16,17 @@ struct queue {
   node * head;
 };
 
-enum retval { FAIL, OK };
-
 void init (queue &);
 void deinit (queue &);
-retval enqueue(int,queue &);
-retval first(int &,const queue &);
-retval dequeue(queue &);
-void print (const queue &);
+void enqueue(int,queue &);
+void dequeue(queue &);
+void print(const queue &);
 
-void enqueueCustomer();
-void serveCustomer();
+int length(queue);
+
+void enqueueCustomer(int,queue[]);
+void serveCustomer(queue[]);
+void deinit_array (queue[]);
+void print_array (const queue []);
 
 #endif

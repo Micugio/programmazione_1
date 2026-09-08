@@ -59,7 +59,7 @@ int main (int argc, char * argv[]) {
 
     percent = Percentuale(sup, n);
 
-    if (n<=0) {
+    if (n==0) {
         cout << "Il numero delle misurazioni è uguale a zero, per cui non posso calcolare la percentuale" << endl;
     }
     else {

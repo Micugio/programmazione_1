@@ -1,6 +1,8 @@
 #include <iostream>
 using namespace std;
 
+// Contare occorrenze/frequenze delle lettere dell'alfabeto
+
 const int DIM = 80;
 
 void stampa (const int array[], int dim) {

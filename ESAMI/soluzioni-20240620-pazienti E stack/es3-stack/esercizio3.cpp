@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <cassert>
+using namespace std;
 
 // Non modificare questa parte sotto del codice
 typedef struct Stack {
@@ -25,7 +26,7 @@ void push(struct Stack * &s, int value) {
 
 int top(struct Stack * s) {
     if (isEmpty(s)) {
-        std::cerr << "Error: stack is empty" << std::endl;
+        cerr << "Error: stack is empty" << endl;
         exit(1);
     }
     return s->data;
@@ -33,7 +34,7 @@ int top(struct Stack * s) {
 
 int pop(struct Stack * &s) {
     if (isEmpty(s)) {
-        std::cerr << "Error: stack is empty" << std::endl;
+        cerr << "Error: stack is empty" << endl;
         exit(1);
     }
     int value = s->data;
@@ -51,21 +52,21 @@ void deleteStack(struct Stack * &s) {
 
 void printStack(struct Stack * s, const char * message = "Stack: ") {
     if (isEmpty(s)) {
-        std::cout << "Stack is empty" << std::endl;
+        cout << "Stack is empty" << endl;
     } else {
-        std::cout << message;
+        cout << message;
         struct Stack * temp = s;
         while (temp != nullptr) {
-            std::cout << temp->data << " ";
+            cout << temp->data << " ";
             temp = temp->next;
         }
-        std::cout << std::endl;
+        cout << endl;
     }
 }
 // Non modificare questa parte sopra del codice
 
 // Inserire qui sotto la dichiarazione della funzione calcola
-
+Stack * calcola (Stack * s);
 // Inserire qui sopra la dichiarazione della funzione calcola
 
 
@@ -109,5 +110,11 @@ int main() {
 }
 
 // Inserire qui sotto la definizione della funzione calcola
+Stack * calcola_aux (Stack * s) {
+    
+}
 
+Stack * calcola (Stack * s) {
+
+}
 // Inserire qui sopra la definizione della funzione stackOperator

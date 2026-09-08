@@ -114,7 +114,7 @@ void calcolaRecur(Stack * & s, Stack * & result, int count[]) {
         return;
     }
     int value = pop(s);
-    assert(value >= 0 && value <= 9);
+    assert(value >= 0 && value <= 9);  // Se la variabile value NON É compresa tra 0 e 9 (inclusi), allora il programma si interrompe immediatamente segnalando un errore.
     count[value]++;
     calcolaRecur(s, result, count);
     push(s, value);

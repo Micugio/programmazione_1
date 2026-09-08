@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <cassert>
+using namespace std;
 
 // Non modificare questa parte sotto del codice
 typedef struct Stack {
@@ -25,7 +26,7 @@ void push(struct Stack * &s, int value) {
 
 int top(struct Stack * s) {
     if (isEmpty(s)) {
-        std::cerr << "top Error: stack is empty" << std::endl;
+        cerr << "top Error: stack is empty" << endl;
         assert(false);
         exit(1);
     }
@@ -34,7 +35,7 @@ int top(struct Stack * s) {
 
 int pop(struct Stack * &s) {
     if (isEmpty(s)) {
-        std::cerr << "pop Error: stack is empty" << std::endl;
+        cerr << "pop Error: stack is empty" << endl;
         assert(false);
         exit(1);
     }
@@ -63,26 +64,30 @@ void deleteStack(struct Stack * &s) {
 
 void printStack(struct Stack * s, const char * message = "Stack: ") {
     if (isEmpty(s)) {
-        std::cout << "Stack is empty" << std::endl;
+        cout << "Stack is empty" << endl;
     }
     else
     {
-        std::cout << message;
+        cout << message;
         struct Stack * temp = s;
         while (temp != nullptr) {
-            std::cout << temp->data << " ";
+            cout << temp->data << " ";
             temp = temp->next;
         }
-        std::cout << std::endl;
+        cout << endl;
     }
 }
 // Non modificare questa parte sopra del codice
 
 // Inserire qui sotto la dichiarazione della funzione calcola
-
+void inserisciAlFondo(struct Stack * &s, int valore);
+void invertiStack(struct Stack * &s);
+void moltiplicaParallelo(struct Stack * &s1, struct Stack * &s2);
+void calcola(struct Stack * &s1, struct Stack * &s2);
 // Inserire qui sopra la dichiarazione della funzione calcola
 
 
+// NOTA: la testa degli stack è il numero più piccolo!!!
 int main() {
     struct Stack *s1, *s2;
     unsigned int seed = (unsigned int)time(NULL);
@@ -133,5 +138,55 @@ int main() {
 
 // Inserire qui sotto la definizione della funzione calcola
 
+// 1. Inserisce ricorsivamente un elemento alla base dello stack
+void inserisciAlFondo(struct Stack * &s, int valore) {
+    if (isEmpty(s)) {
+        push(s, valore);
+    } else {
+        int temp = pop(s);
+        inserisciAlFondo(s, valore);
+        push(s, temp);
+    }
+}
+
+// 2. Capovolge interamente lo stack
+void invertiStack(struct Stack * &s) {
+    if (!isEmpty(s)) {
+        int temp = pop(s);
+        invertiStack(s);
+        inserisciAlFondo(s, temp);
+    }
+}
+
+// 3. Esegue la moltiplicazione elemento per elemento (con s2 capovolto)
+void moltiplicaParallelo(struct Stack * &s1, struct Stack * &s2) {
+    if (!isEmpty(s1)) {
+        int v1 = pop(s1);
+        int v2 = pop(s2);
+
+        // Chiamata ricorsiva per gli elementi successivi
+        moltiplicaParallelo(s1, s2);
+
+        // In risalita ricostruisce gli stack col valore calcolato per s1
+        push(s1, v1 * v2);
+        push(s2, v2);
+    }
+}
+
+// Funzione principale che coordina i passi
+void calcola(struct Stack * &s1, struct Stack * &s2) {
+    if (isEmpty(s1) || isEmpty(s2)) {
+        return;
+    }
+
+    // Passaggio 1: Capovolge s2 per allineare la cima col fondo
+    invertiStack(s2);
+
+    // Passaggio 2: Effettua le moltiplicazioni scorrendo s1 e s2 in parallelo
+    moltiplicaParallelo(s1, s2);
+
+    // Passaggio 3: Capovolge di nuovo s2 per ripristinarne l'ordine originario
+    invertiStack(s2);
+}
 
 // Inserire qui sopra la definizione della funzione stackOperator

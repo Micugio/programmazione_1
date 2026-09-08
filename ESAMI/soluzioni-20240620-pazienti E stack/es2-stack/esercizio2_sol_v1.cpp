@@ -2,6 +2,8 @@
 #include <cstdlib>
 #include <cassert>
 
+using namespace std;
+
 // Non modificare questa parte sotto del codice
 typedef struct Stack {
     int data;
@@ -25,7 +27,7 @@ void push(struct Stack * &s, int value) {
 
 int top(struct Stack * s) {
     if (isEmpty(s)) {
-        std::cerr << "top Error: stack is empty" << std::endl;
+        cerr << "top Error: stack is empty" << endl;
         assert(false);
         exit(1);
     }
@@ -34,7 +36,7 @@ int top(struct Stack * s) {
 
 int pop(struct Stack * &s) {
     if (isEmpty(s)) {
-        std::cerr << "pop Error: stack is empty" << std::endl;
+        cerr << "pop Error: stack is empty" << endl;
         assert(false);
         exit(1);
     }
@@ -63,17 +65,17 @@ void deleteStack(struct Stack * &s) {
 
 void printStack(struct Stack * s, const char * message = "Stack: ") {
     if (isEmpty(s)) {
-        std::cout << "Stack is empty" << std::endl;
+        cout << "Stack is empty" << endl;
     }
     else
     {
-        std::cout << message;
+        cout << message;
         struct Stack * temp = s;
         while (temp != nullptr) {
-            std::cout << temp->data << " ";
+            cout << temp->data << " ";
             temp = temp->next;
         }
-        std::cout << std::endl;
+        cout << endl;
     }
 }
 // Non modificare questa parte sopra del codice

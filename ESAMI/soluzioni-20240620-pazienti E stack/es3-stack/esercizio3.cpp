@@ -66,7 +66,7 @@ void printStack(struct Stack * s, const char * message = "Stack: ") {
 // Non modificare questa parte sopra del codice
 
 // Inserire qui sotto la dichiarazione della funzione calcola
-Stack * calcola (Stack * s);
+Stack * calcola(Stack *&s);
 // Inserire qui sopra la dichiarazione della funzione calcola
 
 
@@ -110,11 +110,28 @@ int main() {
 }
 
 // Inserire qui sotto la definizione della funzione calcola
-Stack * calcola_aux (Stack * s) {
-    
+void calcolaRecur(Stack * & s, Stack * & result, int count[]) {
+    if (isEmpty(s)) {
+        return;
+    }
+    int value = pop(s);
+
+    // Se la variabile value NON É compresa tra 0 e 9 (inclusi), allora il programma si interrompe immediatamente segnalando un errore.
+    assert(value >= 0 && value <= 9);
+
+    count[value]++;
+    calcolaRecur(s, result, count);
+    push(s, value);
+    push(result, count[value]);
+    push(result, value);
+    count[value]--;
 }
 
-Stack * calcola (Stack * s) {
-
+Stack * calcola(Stack * & s) {
+    Stack * result = initStack();
+    // Inizializzo il counter per ogni cifra a 0
+    int count[10] = {0};
+    calcolaRecur(s, result, count);
+    return result;
 }
 // Inserire qui sopra la definizione della funzione stackOperator

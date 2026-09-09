@@ -39,7 +39,7 @@ void dequeue(queue & Q) {
     node * first = Q.head;
     Q.head = Q.head->next;
 
-    //// CORREZIONE GEMINI -> Se la coda è diventata vuota, azzeriamo anche la tail
+    //// DIVERSO DAL PROF -> Se la coda è diventata vuota, azzeriamo anche la tail
     if (Q.head == NULL) {
       Q.tail = NULL;
     }

@@ -21,8 +21,8 @@ int main(int argc, char *argv[]) {
 
   // Controllo degli argomenti
   if (argc != 2) {
-    cout << "Usage: random-arrayDyna <length>" << endl;
-    exit(0);
+    cout << "Usage: <length-arrayDyna>" << endl;
+    exit(1);
   }
 
   // Ottengo la grandezza dell'arrayDyna e lo genero
